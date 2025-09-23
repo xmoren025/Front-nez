@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root, html, body {
+    height: 100%;
+}
+
+
+.login-page{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+.login-form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+    background-color: aliceblue;
+    border-radius: 10px;
+    border-top: 10px solid blue;
+}
+
+
+.button-wrapper{
+    display: flex;
+    justify-content: right;
+}
+
+.submit-btn{
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: white;
+    background-color: blue;
+    transition: all 150ms ease-in;
+
+}
+
+.submit-btn:hover{
+    background-color: blueviolet;
+    cursor: pointer;
+    
+}
+
+.login-input
+{
+    border:  1px solid gray;
+    margin: 10px ;
+}
+
+.login-link
+{
+    color:blue;
+    margin:3px ;
+    transition: all 150ms ease-in;
+}
+
+.login-link:hover{
+    color: rgb(53, 105, 202);
+    cursor: pointer;
+}
+
+.login-link:focus{
+    color: #501b74;
+}
+
+.login-text
+{
+    margin:10px ;
+}
+
+
+
