@@ -2,9 +2,8 @@ import React from "react";
 
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import AppBar from "@mui/material/AppBar";
 import Divider from "@mui/material/Divider";
-import CssBaseline from "@mui/material/CssBaseline";
+import Image from "next/image";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -56,20 +55,8 @@ function NavBar() {
     setOpenServices(!openServices);
   };
 
-  
   return (
     <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-      >
-        <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Nez System
-          </Typography>
-        </Toolbar>
-      </AppBar>
       <Drawer
         variant="permanent"
         sx={{
@@ -80,8 +67,15 @@ function NavBar() {
           },
         }}
       >
+        <Image
+          src="/logos/nez2-logo-512.png"
+          alt="Nez logo"
+          width={220}
+          height={160}
+        />
+
         <Toolbar />
-        <Box sx={{ overflow: "auto", paddingLeft: 1, paddingTop: 3 }}>
+        <Box sx={{ overflow: "auto", paddingLeft: 1 }}>
           <ButtonBase
             component="label"
             role={undefined}
@@ -165,10 +159,10 @@ function NavBar() {
               </ListItemButton>
             </List>
           </Collapse>
-
+          
           <ListItemButton href="/auth/login">
             <ListItemIcon>
-              <Logout sx={{ color: red[300] }} />
+              <Logout sx={{ color: red[300]}} />
             </ListItemIcon>
             <ListItemText primary="Log out" />
           </ListItemButton>
