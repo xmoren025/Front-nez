@@ -14,6 +14,7 @@ import Collapse from "@mui/material/Collapse";
 import List from "@mui/material/List";
 import Avatar from "@mui/material/Avatar";
 import ButtonBase from "@mui/material/ButtonBase";
+import { red } from "@mui/material/colors";
 
 // Icons
 import {
@@ -27,7 +28,35 @@ import {
   Logout,
 } from "@mui/icons-material";
 
+const drawerWidth = 240;
+
 function NavBar() {
+  const [avatarSrc, setAvatarSrc] = React.useState(undefined);
+
+  const handleAvatarChange = (event) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      // Read the file as a data URL
+      const reader = new FileReader();
+      reader.onload = () => {
+        setAvatarSrc(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const [openServices, setOpenServices] = React.useState(true);
+  const [openStorage, setOpenStorage] = React.useState(true);
+
+  const handleStorageClick = () => {
+    setOpenStorage(!openStorage);
+  };
+
+  const handleServicesClick = () => {
+    setOpenServices(!openServices);
+  };
+
+  
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -137,7 +166,7 @@ function NavBar() {
             </List>
           </Collapse>
 
-          <ListItemButton href="/test">
+          <ListItemButton href="/auth/login">
             <ListItemIcon>
               <Logout sx={{ color: red[300] }} />
             </ListItemIcon>
