@@ -1,20 +1,22 @@
 import React from "react";
 
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import Divider from "@mui/material/Divider";
 import Image from "next/image";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemButton from "@mui/material/ListItemButton";
-import Collapse from "@mui/material/Collapse";
-import List from "@mui/material/List";
-import Avatar from "@mui/material/Avatar";
-import ButtonBase from "@mui/material/ButtonBase";
 import { red } from "@mui/material/colors";
-
+// Elements 
+import {
+  Box,
+  Divider,
+  Typography,
+  Drawer,
+  Toolbar,
+  ListItemIcon,
+  ListItemText,
+  ListItemButton,
+  Collapse,
+  List,
+  Avatar,
+  ButtonBase,
+} from "@mui/material";
 // Icons
 import {
   AddBox,
@@ -126,7 +128,10 @@ function NavBar() {
           </ListItemButton>
           <Collapse in={openServices} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItemButton sx={{ pl: 4 }}>
+              <ListItemButton
+                href="/dashboard/create-puzzle/choose-pieces"
+                sx={{ pl: 4 }}
+              >
                 <ListItemIcon>
                   <AddBox />
                 </ListItemIcon>
@@ -159,10 +164,10 @@ function NavBar() {
               </ListItemButton>
             </List>
           </Collapse>
-          
+
           <ListItemButton href="/auth/login">
             <ListItemIcon>
-              <Logout sx={{ color: red[300]}} />
+              <Logout sx={{ color: red[300] }} />
             </ListItemIcon>
             <ListItemText primary="Log out" />
           </ListItemButton>

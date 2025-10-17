@@ -9,7 +9,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 //icons
 import Circle from "@mui/icons-material/Circle";
-import LoginForm from "@/components/loginForm";
+import LoginForm from "@/components/forms/loginForm";
 
 export default function Login() {
   

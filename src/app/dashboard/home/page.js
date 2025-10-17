@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 export default function HomePage() {
   return (
     <Box>
-      <NavBar />
+      <NavBar/>
       <Box sx={{ paddingLeft: 35}}>
         <Typography variant="h3" gutterBottom align="center" paddingTop={15}>
           title

@@ -1,9 +1,6 @@
-"use client"
+"use client";
+import React from "react";
 
-export default function ListPuzzles(){
-    return(
-        <div>
-
-        </div>
-    );
+export default function ListPuzzles() {
+  return <div></div>;
 }
