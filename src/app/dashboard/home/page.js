@@ -9,6 +9,7 @@ import Stack from "@mui/material/Stack";
 
 // Icons
 import { Fitbit } from "@mui/icons-material";
+import CreateButton from "@/components/buttons/createButton";
 
 export default function HomePage() {
   return (

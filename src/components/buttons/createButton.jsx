@@ -2,15 +2,15 @@
 
 import React from "react";
 import Box from "@mui/material/Box";
-import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
 import AddCircle from "@mui/icons-material/AddCircle";
 
 function CreateButton() {
   return (
     <Box>
-      <IconButton variant="contained">
-        <AddCircle/>
-      </IconButton>
+      <Button variant="text" startIcon={<AddCircle />}>
+        Create
+      </Button>
     </Box>
   );
 }

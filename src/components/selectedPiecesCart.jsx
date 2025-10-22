@@ -11,10 +11,10 @@ import {
 function SelectedPiecesCart(){
     return(
         <Box>
-            <Typography variant="h5" gutterBottom>Selected pieces</Typography>
+            <Typography variant="h6" gutterBottom>Selected pieces</Typography>
             <Divider/>
             <Box>
-                
+
             </Box>
         </Box>
     );
