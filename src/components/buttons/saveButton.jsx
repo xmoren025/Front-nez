@@ -1,16 +1,17 @@
 "use client";
 
 import React from "react";
-import Box from "@mui/material/Box";
-import IconButton from '@mui/material/IconButton';
 import Save from "@mui/icons-material/Save";
+import { Box, IconButton, Tooltip } from "@mui/material";
 
 function SaveButton() {
   return (
     <Box>
-      <IconButton variant="contained">
-        <Save/>
-      </IconButton>
+      <Tooltip>
+        <IconButton variant="contained">
+          <Save />
+        </IconButton>
+      </Tooltip>
     </Box>
   );
 }

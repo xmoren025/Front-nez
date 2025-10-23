@@ -1,16 +1,17 @@
 "use client";
 
 import React from "react";
-import Box from "@mui/material/Box";
-import IconButton from '@mui/material/IconButton';
 import RemoveShoppingCart from "@mui/icons-material/RemoveShoppingCart";
+import { Box, IconButton, Tooltip } from "@mui/material";
 
 function RemoveButton() {
   return (
     <Box>
-      <IconButton variant="contained">
-        <RemoveShoppingCart/>
-      </IconButton>
+      <Tooltip title="Remove">
+        <IconButton variant="contained">
+          <RemoveShoppingCart />
+        </IconButton>
+      </Tooltip>
     </Box>
   );
 }

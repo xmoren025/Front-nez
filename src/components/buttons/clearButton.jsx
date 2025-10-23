@@ -1,17 +1,19 @@
 "use client";
 
 import React from "react";
-import Box from "@mui/material/Box";
-import IconButton from '@mui/material/IconButton';
 import Autorenew from "@mui/icons-material/Autorenew";
+import { Box, IconButton, Tooltip } from "@mui/material";
 
 function ClearButton() {
   return (
     <Box>
-      <IconButton variant="contained">
-        <Autorenew/>
-      </IconButton>
+      <Tooltip title="Clear">
+        <IconButton variant="contained">
+          <Autorenew />
+        </IconButton>
+      </Tooltip>
     </Box>
   );
 }
 export default ClearButton;
+s;

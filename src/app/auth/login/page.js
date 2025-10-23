@@ -1,18 +1,31 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Grid from "@mui/material/Grid";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-//icons
 import Circle from "@mui/icons-material/Circle";
-import LoginForm from "@/components/forms/loginForm";
+import dynamic from "next/dynamic";
+
+const LoginForm = dynamic(() => import("@/components/forms/loginForm"), {
+  ssr: false,
+});
 
 export default function Login() {
-  
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) return null;
+
+  const listItems = [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  ];
 
   return (
     <Grid
@@ -24,7 +37,7 @@ export default function Login() {
         alignItems: "center",
       }}
     >
-      {/* Columna izquierda */}
+      {/* columna izquierda */}
       <Grid
         item
         xs={12}
@@ -44,15 +57,12 @@ export default function Login() {
           alt="Nez logo"
           width={250}
           height={160}
+          priority
           style={{ marginBottom: "2rem" }}
         />
 
         <List sx={{ width: "100%", maxWidth: 360 }}>
-          {[
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          ].map((text, index) => (
+          {listItems.map((text, index) => (
             <ListItem key={index}>
               <ListItemIcon>
                 <Circle sx={{ fontSize: 10, color: "grey.600" }} />
@@ -66,7 +76,7 @@ export default function Login() {
         </List>
       </Grid>
 
-      {/* Columna derecha (Formulario) */}
+      {/* columna derecha */}
       <Grid
         item
         xs={12}
