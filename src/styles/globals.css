@@ -1,73 +1,78 @@
-@import "tailwindcss";
+/* styles/globals.css */
+/* Variables CSS */
+:root {
+  /* Colores principales */
+  --color-primary: #1e293b;
+  --color-primary-light: #334155;
+  --color-secondary: #3b82f6;
+  --color-accent: #8b5cf6;
+  
+  /* Escala de grises */
+  --color-gray-50: #f8fafc;
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0;
+  --color-gray-300: #cbd5e1;
+  --color-gray-400: #94a3b8;
+  
+  /* Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
 
-:root,
-html,
+/* Reset base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background: var(--color-gray-50);
+  color: var(--color-primary);
 }
 
-.login-page {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-}
-.login-form {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: fit-content;
-  background-color: aliceblue;
-  border-radius: 10px;
-  border-top: 10px solid blue;
+/* Utilidades globales responsivas */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.button-wrapper {
-  display: flex;
-  justify-content: right;
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
 }
 
-.submit-btn {
-  border-radius: 5px;
-  padding: 10px 20px;
-  color: white;
-  background-color: blue;
-  transition: all 150ms ease-in;
+/* Clases de ayuda para responsividad */
+.mobile-only {
+  display: block;
 }
 
-.submit-btn:hover {
-  background-color: blueviolet;
-  cursor: pointer;
+.tablet-up {
+  display: none;
 }
 
-.login-input {
-  border: 1px solid gray;
-  margin: 10px;
+.desktop-up {
+  display: none;
 }
 
-.login-link {
-  color: blue;
-  margin: 3px;
-  transition: all 150ms ease-in;
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+  
+  .tablet-up {
+    display: block;
+  }
 }
 
-.login-link:hover {
-  color: rgb(53, 105, 202);
-  cursor: pointer;
-}
-
-.login-link:focus {
-  color: #501b74;
-}
-
-.login-text {
-  margin: 10px;
-}
-
-@media screen and (min-width: 768px) {
-  body {
-    font-size: 10px;
+@media (min-width: 1024px) {
+  .desktop-up {
+    display: block;
   }
 }

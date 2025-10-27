@@ -1,0 +1,157 @@
+/* components/Stepper.module.css */
+.stepperContainer {
+  width: 60%;
+  padding: 1rem 0rem ;
+  margin-left: 340px;
+}
+
+/* Stepper horizontal simple */
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+/* Línea de conexión - SIEMPRE GRIS */
+.stepperLine {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #e2e8f0;
+  z-index: 1;
+}
+
+/* Paso individual */
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  cursor: pointer;
+}
+
+/* Icono del paso */
+.stepIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e2e8f0;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+    cursor: pointer;
+}
+
+/* SOLO el paso activo es azul */
+.stepIconActive {
+  background-color: #3b82f6 !important;
+  color: white !important;
+  border-color: #3b82f6;
+}
+
+/* Label del paso */
+.stepLabel {
+  font-size: 0.5rem;
+  font-weight: 400;
+  color: #64748b;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stepLabelActive {
+  color: #1e293b !important;
+  font-weight: 600 !important;
+}
+
+/* Contenido */
+.contentContainer {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #f8fafc;
+  border-radius: 8px;
+}
+
+.contentTitle {
+  margin-bottom: 1rem;
+  color: #1e293b;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.contentDescription {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* Botones */
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  gap: 1rem;
+}
+
+/* ========== RESPONSIVE ========== */
+/* Tablet (< 1024px) */
+@media (max-width: 1024px) {
+  .stepLabel {
+    font-size: 0.8rem;
+  }
+
+  .stepIcon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 768px) {
+  .stepperContainer {
+    padding: 1rem 0;
+  }
+
+  .stepLabel {
+    font-size: 0.75rem;
+  }
+
+  .stepIcon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0.25rem;
+  }
+
+  .contentContainer {
+    margin-top: 1.5rem;
+    padding: 1rem;
+  }
+
+  .contentTitle {
+    font-size: 1.1rem;
+  }
+
+  .buttonsContainer {
+    flex-direction: column;
+  }
+}
+
+/* Mobile pequeño (< 640px) */
+@media (max-width: 640px) {
+  .stepLabel {
+    font-size: 0.7rem;
+  }
+
+  .stepIcon {
+    width: 28px;
+    height: 28px;
+  }
+}

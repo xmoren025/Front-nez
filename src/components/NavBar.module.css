@@ -1,0 +1,259 @@
+/* components/NavBar.module.css */
+.navbar {
+  background: #1e293b;
+  color: white;
+  width: 230px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+/* Espacio para el contenido en desktop */
+.contentSpace {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+/* Logo section - ahora es un link */
+.logoSection {
+  padding: 2rem 1.5rem 1.5rem 1rem;
+  background-color: white;
+  border-bottom: 1px solid #334155;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.logoSection:hover {
+  opacity: 0.9;
+}
+
+.logo {
+  max-width: 180px;
+  height: auto;
+}
+
+/* User section */
+.userSection {
+  padding: 1.5rem;
+  border-bottom: 1px solid #334155;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Avatar container MUI */
+.avatarContainer {
+  border-radius: 50% !important;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.avatarContainer:hover {
+  opacity: 0.8;
+}
+
+.avatarInput {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  white-space: nowrap;
+  width: 1px;
+  position: absolute;
+}
+
+.userInfo {
+  flex: 1;
+}
+
+.userName {
+  font-weight: 600;
+  font-size: 0.90rem;
+  margin: 0;
+}
+
+.userRole {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin: 0;
+  padding-top: 5px;
+}
+
+/* Navigation */
+.navContent {
+  flex: 1;
+  padding: 1rem 0.5rem;
+  overflow-y: auto;
+  font-size: 0.85rem;
+}
+
+.navSection {
+  margin-bottom: 0.5rem;
+}
+
+.navHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.navHeader:hover {
+  background: #334155;
+}
+
+.navTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 500;
+}
+
+/* Clase para iconos normales */
+.navIcon {
+  color: #94a3b8 !important;
+  font-size: 1.25rem !important;
+}
+
+/* Clase específica para logout (rojo) */
+.logoutIcon {
+  color: #f87171 !important;
+  font-size: 1.25rem !important;
+}
+
+.navItems {
+  padding-left: 0.5rem;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem 0.6rem 2.5rem;
+  text-decoration: none;
+  color: #cbd5e1;
+  border-radius: 6px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.navItem:hover {
+  background: #334155;
+  color: white;
+}
+
+.navItem:hover .navIcon {
+  color: white !important;
+}
+
+/* Logout */
+.logoutSection {
+  padding: 1rem 0.5rem;
+  border-top: 1px solid #334155;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #f87171;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: none;
+  font-size: 0.9rem;
+}
+
+.logoutButton:hover {
+  background: #334155;
+}
+
+.logoutButton:hover .logoutIcon {
+  color: white !important;
+}
+
+/* ========== RESPONSIVE ========== */
+/* Mobile menu button */
+.mobileMenuButton {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1100;
+  background: #1e293b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Mobile overlay */
+.mobileOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .navbarHidden {
+    transform: translateX(-100%);
+  }
+  
+  .navbar:not(.navbarHidden) {
+    transform: translateX(0);
+  }
+  
+  .mobileMenuButton {
+    display: block;
+  }
+  
+  .mobileOverlay {
+    display: block;
+  }
+  
+  .navbar {
+    width: 300px;
+  }
+  
+  .contentSpace {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    width: 100vw;
+  }
+  
+  .userSection {
+    padding: 1rem;
+  }
+}

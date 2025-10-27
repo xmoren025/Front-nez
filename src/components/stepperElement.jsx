@@ -1,21 +1,49 @@
+// components/Stepper.jsx
 "use client";
 
 import React from "react";
 import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepButton from "@mui/material/StepButton";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+
+// Componentes de botones reutilizables
+import BackButton from "./buttons/backButton";
+import NextButton from "./buttons/nextButton";
+
+// Iconos MUI
+import {
+  Extension,
+  Checklist,  
+  Storage,
+  AppRegistration,
+} from "@mui/icons-material";
+
+import styles from './Stepper.module.css';
 
 const steps = [
-  "Choose your pieces",
-  "Choose your requirements",
-  "Choose your data",
-  "Join your app", 
+  {
+    label: "Choose your pieces",
+    icon: <Extension />,
+  },
+  {
+    label: "Choose your requirements", 
+    icon: <Checklist />,
+  },
+  {
+    label: "Choose your data",
+    icon: <Storage />,
+  },
+  {
+    label: "Join your app",
+    icon: <AppRegistration />,
+  },
 ];
 
 function StepperElement() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  
   const [activeStep, setActiveStep] = React.useState(0);
 
   const isFirstStep = activeStep === 0;
@@ -38,34 +66,58 @@ function StepperElement() {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
-      <Stepper nonLinear activeStep={activeStep}>
-        {steps.map((label, index) => (
-          <Step key={label}>
-            <StepButton color="inherit" onClick={handleStep(index)}>
-              {label}
-            </StepButton>
-          </Step>
+    <Box className={styles.stepperContainer}>
+      {/* Stepper personalizado - SIMPLE */}
+      <Box className={styles.stepper}>
+        {/* Línea de conexión - SIEMPRE GRIS */}
+        <div className={styles.stepperLine}></div>
+        
+        {/* Pasos */}
+        {steps.map((step, index) => (
+          <div 
+            key={step.label} 
+            className={styles.step}
+            onClick={handleStep(index)}
+            style={{ cursor: 'pointer' }}
+          >
+            {/* Icono - SOLO activo es azul */}
+            <div className={`${styles.stepIcon} ${activeStep === index ? styles.stepIconActive : ''}`}>
+              {React.cloneElement(step.icon, {
+                sx: { fontSize: '1.25rem' }
+              })}
+            </div>
+            
+            {/* Label - SOLO activo es oscuro */}
+            <div className={`${styles.stepLabel} ${activeStep === index ? styles.stepLabelActive : ''}`}>
+              {step.label}
+            </div>
+          </div>
         ))}
-      </Stepper>
+      </Box>
 
-      <Typography sx={{ mt: 2, mb: 1, py: 1 }}>
-        Step {activeStep + 1}: {steps[activeStep]}
-      </Typography>
+      {/* Contenido del paso actual */}
+      <Box className={styles.contentContainer}>
+        <Typography className={styles.contentTitle}>
+          Step {activeStep + 1}: {steps[activeStep].label}
+        </Typography>
+        
+        <Typography className={styles.contentDescription}>
+          Contenido específico del paso {activeStep + 1}...
+        </Typography>
+      </Box>
 
-      <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-        <Button
-          color="inherit"
-          disabled={isFirstStep}
+      {/* Botones de navegación */}
+      <Box className={styles.buttonsContainer}>
+        <BackButton 
           onClick={handleBack}
-          sx={{ mr: 1 }}
-        >
-          Back
-        </Button>
-        <Box sx={{ flex: "1 1 auto" }} />
-        <Button onClick={handleNext} disabled={isLastStep}>
-          Next
-        </Button>
+          disabled={isFirstStep}
+        />
+        
+        <NextButton 
+          onClick={handleNext}
+          disabled={isLastStep}
+          isLastStep={isLastStep}
+        />
       </Box>
     </Box>
   );

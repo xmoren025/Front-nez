@@ -1,16 +1,24 @@
 "use client";
 
 import React from "react";
-import Box from "@mui/material/Box";
 import Button from '@mui/material/Button';
 
-function NextButton() {
+function NextButton({ onClick, disabled = false, variant = "text", isLastStep = false}) {
   return (
-    <Box>
-      <Button variant="text">
-        Next
-      </Button>
-    </Box>
+    <Button
+      variant={variant}
+      onClick={onClick}
+      disabled={disabled}
+      sx={{
+        borderRadius: '8px',
+        textTransform: 'none',
+        fontWeight: 500,
+        px: 3,
+      }}
+    >
+      Next
+    </Button>
   );
 }
+
 export default NextButton;
