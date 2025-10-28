@@ -7,11 +7,12 @@ import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
-// Componentes de botones reutilizables
+// Componentes reutilizables
 import BackButton from "./buttons/backButton";
 import NextButton from "./buttons/nextButton";
+import CustomTabsBoard from "./boards/customTabsBoard"; // Importar el board
 
-// Iconos MUI
+// Iconos
 import {
   Extension,
   Checklist,  
@@ -21,22 +22,41 @@ import {
 
 import styles from './Stepper.module.css';
 
+// Definir tabs para cada paso
 const steps = [
   {
     label: "Choose your pieces",
     icon: <Extension />,
+    tabs: [
+      { label: "Pieces Tab 1", content: "Contenido del Tab 1 de Pieces" },
+      { label: "Pieces Tab 2", content: "Contenido del Tab 2 de Pieces" },
+      { label: "Pieces Tab 3", content: "Contenido del Tab 3 de Pieces" },
+    ],
   },
   {
     label: "Choose your requirements", 
     icon: <Checklist />,
+    tabs: [
+      { label: "Requirements Tab 1", content: "Contenido del Tab 1 de Requirements" },
+      { label: "Requirements Tab 2", content: "Contenido del Tab 2 de Requirements" },
+    ],
   },
   {
     label: "Choose your data",
     icon: <Storage />,
+    tabs: [
+      { label: "Data Tab 1", content: "Contenido del Tab 1 de Data" },
+      { label: "Data Tab 2", content: "Contenido del Tab 2 de Data" },
+      { label: "Data Tab 3", content: "Contenido del Tab 3 de Data" },
+      { label: "Data Tab 4", content: "Contenido del Tab 4 de Data" },
+    ],
   },
   {
     label: "Join your app",
     icon: <AppRegistration />,
+    tabs: [
+      { label: "Join Tab 1", content: "Contenido del Tab 1 de Join" },
+    ],
   },
 ];
 
@@ -67,9 +87,8 @@ function StepperElement() {
 
   return (
     <Box className={styles.stepperContainer}>
-      {/* Stepper personalizado - SIMPLE */}
+      {/* Stepper*/}
       <Box className={styles.stepper}>
-        {/* Línea de conexión - SIEMPRE GRIS */}
         <div className={styles.stepperLine}></div>
         
         {/* Pasos */}
@@ -101,9 +120,8 @@ function StepperElement() {
           Step {activeStep + 1}: {steps[activeStep].label}
         </Typography>
         
-        <Typography className={styles.contentDescription}>
-          Contenido específico del paso {activeStep + 1}...
-        </Typography>
+        {/* Integrar CustomTabsBoard con los tabs del paso actual */}
+        <CustomTabsBoard items={steps[activeStep].tabs} />
       </Box>
 
       {/* Botones de navegación */}

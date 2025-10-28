@@ -1,25 +1,28 @@
 /* components/Stepper.module.css */
 .stepperContainer {
-  width: 60%;
+  width:100%;
   padding: 1rem 0rem ;
-  margin-left: 340px;
+  margin-left: -20px;
 }
 
 /* Stepper horizontal simple */
 .stepper {
   display: flex;
+  width: 60%;
   justify-content: space-between;
   align-items: center;
   position: relative;
   margin-bottom: 2rem;
+  margin-top: -55px;
+  margin-left: 460px;
 }
 
 /* Línea de conexión - SIEMPRE GRIS */
 .stepperLine {
-  position: absolute;
-  top: 15px;
-  left: 0;
-  right: 0;
+  position:absolute;
+  top: 18px;
+  left: 12%; 
+  right: 12%;
   height: 2px;
   background-color: #e2e8f0;
   z-index: 1;
@@ -49,7 +52,7 @@
   margin-bottom: 0.5rem;
   transition: all 0.3s ease;
   border: 2px solid transparent;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* SOLO el paso activo es azul */
@@ -61,7 +64,7 @@
 
 /* Label del paso */
 .stepLabel {
-  font-size: 0.5rem;
+  font-size: 0.7rem;
   font-weight: 400;
   color: #64748b;
   text-align: center;
@@ -73,24 +76,20 @@
   font-weight: 600 !important;
 }
 
-/* Contenido */
+/* Contenido - Ajustado para el board */
 .contentContainer {
   margin-top: 2rem;
-  padding: 1.5rem;
-  background-color: #f8fafc;
+  padding: 0; /* Quitamos padding porque el board ya tiene */
+  background-color: transparent; /* Fondo transparente */
   border-radius: 8px;
 }
 
 .contentTitle {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: #1e293b;
   font-weight: 600;
   font-size: 1.25rem;
-}
-
-.contentDescription {
-  color: #64748b;
-  line-height: 1.6;
+  text-align: center;
 }
 
 /* Botones */
@@ -105,7 +104,7 @@
 /* Tablet (< 1024px) */
 @media (max-width: 1024px) {
   .stepLabel {
-    font-size: 0.8rem;
+    font-size: 0.65rem;
   }
 
   .stepIcon {
@@ -121,7 +120,7 @@
   }
 
   .stepLabel {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
   }
 
   .stepIcon {
@@ -132,11 +131,11 @@
 
   .contentContainer {
     margin-top: 1.5rem;
-    padding: 1rem;
   }
 
   .contentTitle {
     font-size: 1.1rem;
+    margin-bottom: 1rem;
   }
 
   .buttonsContainer {
@@ -147,7 +146,7 @@
 /* Mobile pequeño (< 640px) */
 @media (max-width: 640px) {
   .stepLabel {
-    font-size: 0.7rem;
+    font-size: 0.55rem;
   }
 
   .stepIcon {

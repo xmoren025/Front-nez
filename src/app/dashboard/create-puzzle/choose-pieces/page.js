@@ -1,18 +1,12 @@
+
 "use client";
 import React from "react";
 
 import NavBar from "@/components/navBar";
 import StepperElement from "@/components/stepperElement";
 import Typography from "@mui/material/Typography";
-import CustomTabsBoard from "@/components/boards/customTabsBoard"; 
 import Box from "@mui/material/Box";
-import SelectedPiecesCart from "@/components/selectedPiecesCart";
-
 export default function ChoosePieces() {
-
-  const tabs = [
-    { label: "Tab 1", content: "Contenido del Tab 1" },
-  ];
 
   return (
     <Box>
@@ -22,8 +16,6 @@ export default function ChoosePieces() {
           Choose pieces
         </Typography>
         <StepperElement/>
-        <SelectedPiecesCart/>
-        <CustomTabsBoard items={tabs} />
       </Box>
     </Box>
   );

@@ -9,7 +9,7 @@ function CustomTabsBoard({ items }) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+ 
   return (
     <Box
       sx={{
