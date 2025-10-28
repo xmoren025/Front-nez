@@ -1,27 +1,25 @@
 /* components/Stepper.module.css */
 .stepperContainer {
-  width:100%;
-  padding: 1rem 0rem ;
+  width: 100%;
+  padding: 1rem 0rem;
   margin-left: -20px;
 }
 
 /* Stepper horizontal simple */
 .stepper {
   display: flex;
-  width: 60%;
   justify-content: space-between;
   align-items: center;
   position: relative;
   margin-bottom: 2rem;
   margin-top: -55px;
-  margin-left: 460px;
 }
 
 /* Línea de conexión - SIEMPRE GRIS */
 .stepperLine {
-  position:absolute;
+  position: absolute;
   top: 18px;
-  left: 12%; 
+  left: 12%;
   right: 12%;
   height: 2px;
   background-color: #e2e8f0;
@@ -79,8 +77,8 @@
 /* Contenido - Ajustado para el board */
 .contentContainer {
   margin-top: 2rem;
-  padding: 0; /* Quitamos padding porque el board ya tiene */
-  background-color: transparent; /* Fondo transparente */
+  padding: 0;
+  background-color: transparent;
   border-radius: 8px;
 }
 
@@ -101,22 +99,15 @@
 }
 
 /* ========== RESPONSIVE ========== */
-/* Tablet (< 1024px) */
-@media (max-width: 1024px) {
-  .stepLabel {
-    font-size: 0.65rem;
-  }
-
-  .stepIcon {
-    width: 36px;
-    height: 36px;
-  }
-}
-
-/* Mobile (< 768px) */
-@media (max-width: 768px) {
+/* Mobile */
+@media (max-width: 640px) {
   .stepperContainer {
     padding: 1rem 0;
+  }
+
+  .stepper {
+    display: flex;
+    width: 100%;
   }
 
   .stepLabel {
@@ -143,14 +134,30 @@
   }
 }
 
-/* Mobile pequeño (< 640px) */
-@media (max-width: 640px) {
+
+/* Tablet */
+@media (min-width:640px) and (max-width: 1024px) {
   .stepLabel {
-    font-size: 0.55rem;
+    font-size: 0.65rem;
   }
 
   .stepIcon {
-    width: 28px;
-    height: 28px;
+    width: 36px;
+    height: 36px;
   }
+}
+
+/* Computadoras / Laptops */
+@media (min-width: 1024px){
+  .stepper {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  align-items: end;
+  position: relative;
+  margin-bottom: 2rem;
+  margin-top: -55px;
+  float: right;
+}
+
 }

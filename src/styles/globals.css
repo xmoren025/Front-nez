@@ -1,40 +1,37 @@
 /* styles/globals.css */
-/* Variables CSS */
+
+/* Variables */
 :root {
-  /* Colores principales */
+  /* Colores */
   --color-primary: #1e293b;
   --color-primary-light: #334155;
-  --color-secondary: #3b82f6;
-  --color-accent: #8b5cf6;
-  
+  --color-secondary: #1D9CDB;
+  --color-accent: #005A9C;
+
   /* Escala de grises */
   --color-gray-50: #f8fafc;
   --color-gray-100: #f1f5f9;
   --color-gray-200: #e2e8f0;
   --color-gray-300: #cbd5e1;
   --color-gray-400: #94a3b8;
-  
-  /* Breakpoints */
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1280px;
+
 }
 
-/* Reset base */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Base */
 body {
   font-family: 'Inter', sans-serif;
   background: var(--color-gray-50);
   color: var(--color-primary);
 }
 
-/* Utilidades globales responsivas */
+/* Layout base */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -42,37 +39,56 @@ body {
   padding: 0 1rem;
 }
 
-@media (min-width: 768px) {
-  .container {
-    padding: 0 2rem;
+
+/* Celulares */
+@media (max-width: 640px) {
+  .title {
+    padding-left: 50;
   }
-}
 
-/* Clases de ayuda para responsividad */
-.mobile-only {
-  display: block;
-}
+  .container {
+    padding: 0 1rem;
+  }
 
-.tablet-up {
-  display: none;
-}
 
-.desktop-up {
-  display: none;
-}
-
-@media (min-width: 768px) {
   .mobile-only {
+    display: block;
+  }
+
+  .tablet-only,
+  .desktop-only {
     display: none;
   }
-  
-  .tablet-up {
+}
+
+/* Tablets */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .title {
+    padding-left: 120px;
+  }
+
+  .mobile-only,
+  .desktop-only {
+    display: none;
+  }
+
+  .tablet-only {
     display: block;
   }
 }
 
-@media (min-width: 1024px) {
-  .desktop-up {
+/* Computadoras / Laptops */
+@media (min-width: 1025px) {
+  .title {
+    padding-left: 18rem;
+  }
+
+  .mobile-only,
+  .tablet-only {
+    display: none;
+  }
+
+  .desktop-only {
     display: block;
   }
 }

@@ -35,7 +35,7 @@ export default function NavBar() {
   // Detectar si es móvil
   useEffect(() => {
     const checkMobile = () => {
-      const mobile = window.innerWidth <= 768;
+      const mobile = window.innerWidth <= 640 || (window.innerWidth > 640 && window.innerWidth <= 1024);
       setIsMobile(mobile);
       if (!mobile) {
         setIsOpen(false);
@@ -169,7 +169,7 @@ export default function NavBar() {
             {openSections.services && (
               <div className={styles.navItems}>
                 <Link 
-                  href="/dashboard/create-puzzle/choose-pieces" 
+                  href="/dashboard/create-puzzle" 
                   className={styles.navItem}
                   onClick={closeMobileNav}
                 >

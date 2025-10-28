@@ -10,7 +10,7 @@ import { useTheme } from "@mui/material/styles";
 // Componentes reutilizables
 import BackButton from "./buttons/backButton";
 import NextButton from "./buttons/nextButton";
-import CustomTabsBoard from "./boards/customTabsBoard"; // Importar el board
+import CustomTabsBoard from "./boards/customTabsBoard";
 
 // Iconos
 import {
@@ -28,9 +28,7 @@ const steps = [
     label: "Choose your pieces",
     icon: <Extension />,
     tabs: [
-      { label: "Pieces Tab 1", content: "Contenido del Tab 1 de Pieces" },
-      { label: "Pieces Tab 2", content: "Contenido del Tab 2 de Pieces" },
-      { label: "Pieces Tab 3", content: "Contenido del Tab 3 de Pieces" },
+      { label: "My pieces", content: "Contenido del Tab 1 de Pieces" },
     ],
   },
   {
@@ -38,7 +36,6 @@ const steps = [
     icon: <Checklist />,
     tabs: [
       { label: "Requirements Tab 1", content: "Contenido del Tab 1 de Requirements" },
-      { label: "Requirements Tab 2", content: "Contenido del Tab 2 de Requirements" },
     ],
   },
   {
@@ -48,7 +45,6 @@ const steps = [
       { label: "Data Tab 1", content: "Contenido del Tab 1 de Data" },
       { label: "Data Tab 2", content: "Contenido del Tab 2 de Data" },
       { label: "Data Tab 3", content: "Contenido del Tab 3 de Data" },
-      { label: "Data Tab 4", content: "Contenido del Tab 4 de Data" },
     ],
   },
   {

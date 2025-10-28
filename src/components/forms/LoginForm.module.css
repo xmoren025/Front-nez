@@ -12,7 +12,7 @@
 
 .brandSection {
     flex: 1;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background: linear-gradient(135deg, #5B95CC 10%, #ffffff 100%);
     color: white;
     padding: 60px 50px;
     display: flex;

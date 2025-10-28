@@ -263,7 +263,7 @@ export default function RegisterForm() {
           <Typography variant="body2" className={styles.footerText}>
             Already have an account?{" "}
             <Button 
-              href="/login" 
+              href="/auth/login" 
               variant="text" 
               className={styles.footerLink}
             >

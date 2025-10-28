@@ -7,6 +7,7 @@ import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Divider from "@mui/material/Divider";
+import Image from 'next/image';
 import Box from "@mui/material/Box";
 import InputAdornment from "@mui/material/InputAdornment";
 import { Email, Lock, Check } from "@mui/icons-material";
@@ -25,7 +26,6 @@ function LoginForm() {
     const handleChange = ({ target: { name, value } }) => {
         setUserData({ ...userData, [name]: value });
         
-        // Clear error when user starts typing
         if (errors[name]) {
             setErrors(prev => ({ ...prev, [name]: '' }));
         }
@@ -65,22 +65,18 @@ function LoginForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        // Mark all fields as touched
         const allTouched = {
             email: true,
             password: true,
         };
         setTouched(allTouched);
         
-        // Validate all fields
         const isEmailValid = validateField('email', userData.email);
         const isPasswordValid = validateField('password', userData.password);
         
         if (isEmailValid && isPasswordValid) {
-            // Submit the form
             console.log('Form submitted:', userData);
             alert('Login successful!');
-            // Here you would typically make an API call
         }
     };
 
@@ -92,9 +88,14 @@ function LoginForm() {
         <Box className={styles.container}>
             {/* Brand Section */}
             <Box className={styles.brandSection}>
-                <Typography variant="h3" className={styles.brandTitle}>
-                    Nez
-                </Typography>
+                <Image
+                            src="/logos/logo-nez-512sinfondo.png"
+                            alt="Nez Logo"
+                            width={200}
+                            height={80}
+                            className={styles.logo}
+                            priority
+                          />
                 
                 <Box component="ul" className={styles.featureList}>
                     <Box component="li" className={styles.featureItem}>

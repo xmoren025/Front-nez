@@ -11,8 +11,8 @@ export default function ChoosePieces() {
   return (
     <Box>
       <NavBar />
-      <Box sx={{ paddingLeft: 35 }}>
-        <Typography variant="h4" gutterBottom paddingTop={5}>
+      <Box>
+        <Typography className= "title" variant="h4" gutterBottom paddingTop={5}>
           Choose pieces
         </Typography>
         <StepperElement/>
