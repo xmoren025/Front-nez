@@ -15,9 +15,9 @@ import Email from "@mui/icons-material/Email";
 import Lock from "@mui/icons-material/Lock";
 import Business from "@mui/icons-material/Business";
 
-import styles from './RegisterUserForm.module.css';
+import styles from './Forms.module.css';
 
-export default function RegisterForm() {
+export default function RegisterUserForm() {
   const [userData, setUserData] = useState({
     username: "",
     email: "",

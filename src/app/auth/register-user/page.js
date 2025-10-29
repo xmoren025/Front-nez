@@ -1,8 +1,8 @@
 "use client";
 
-import RegisterForm from "@/components/forms/registerUserForm";
 import React from "react";
+import RegisterUserForm from "@/components/forms/registerUserForm";
 
-export default function RegisterPage() {
-  return <RegisterForm/>;
+export default function RegisterUser() {
+  return <RegisterUserForm/>;
 }
