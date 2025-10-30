@@ -10,7 +10,9 @@ import {
   InputAdornment,
 } from "@mui/material";
 import Lock from "@mui/icons-material/Lock";
+
 import styles from './Forms.module.css';
+
 
 export default function ResetPasswordForm() {
   const [userData, setUserData] = useState({ password: "", confirmPassword: "" });
@@ -91,6 +93,7 @@ export default function ResetPasswordForm() {
             ),
           }}
           variant="outlined"
+          className={styles.TextField}
         />
 
         <TextField
@@ -113,9 +116,10 @@ export default function ResetPasswordForm() {
             ),
           }}
           variant="outlined"
+          className={styles.TextField}
         />
 
-        <Button variant="contained" type="submit" fullWidth>
+        <Button variant="contained" type="submit" fullWidth className={styles.submitButton}>
           Save
         </Button>
       </Box>

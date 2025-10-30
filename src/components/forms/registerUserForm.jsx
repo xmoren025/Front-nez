@@ -17,6 +17,7 @@ import Business from "@mui/icons-material/Business";
 
 import styles from './Forms.module.css';
 
+
 export default function RegisterUserForm() {
   const [userData, setUserData] = useState({
     username: "",

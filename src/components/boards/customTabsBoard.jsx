@@ -1,15 +1,22 @@
-"use client"
+"use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tabs, Tab, Box, Typography } from "@mui/material";
 
-function CustomTabsBoard({ items }) {
+function CustomTabsBoard({ items = [] }) {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
- 
+
+  // Evita índices fuera de rango si cambia el número de tabs
+  useEffect(() => {
+    if (items.length > 0 && value >= items.length) {
+      setValue(0);
+    }
+  }, [items, value]);
+
   return (
     <Box
       sx={{
@@ -17,17 +24,16 @@ function CustomTabsBoard({ items }) {
         borderRadius: 2,
         width: "100%",
         maxWidth: 600,
-        mx: "auto"
+        mx: "auto",
       }}
     >
+      {/* Tabs superiores */}
       <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
         <Tabs
-          value={value}
+          value={Math.min(value, items.length - 1) || 0}
           onChange={handleChange}
           sx={{
-            ".MuiTabs-indicator": {
-              display: "none",
-            },
+            ".MuiTabs-indicator": { display: "none" },
           }}
         >
           {items.map((item, index) => (
@@ -52,6 +58,8 @@ function CustomTabsBoard({ items }) {
           ))}
         </Tabs>
       </Box>
+
+      {/* Contenedor de contenido */}
       <Box
         sx={{
           bgcolor: "#eaeaea",
@@ -60,7 +68,9 @@ function CustomTabsBoard({ items }) {
           borderRadius: "0 0 6px 6px",
         }}
       >
-        <Typography component="div">{items[value].content}</Typography>
+        <Typography component="div">
+          {items?.[value]?.content ?? "No hay contenido disponible"}
+        </Typography>
       </Box>
     </Box>
   );

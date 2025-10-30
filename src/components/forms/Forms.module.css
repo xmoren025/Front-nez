@@ -1,32 +1,19 @@
-/* =========================================================
-   🌐 FORMULARIOS UNIFICADOS (Login, Registro, Recuperar, etc.)
-   ========================================================= */
-
-/* ----- CONTENEDOR GENERAL ----- */
-.pageContainer {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.loginContainer {
+/* LOGIN */
+.containerloginpage {
     display: flex;
     max-width: 1200px;
     width: 100%;
     min-height: 600px;
-    background-color: #fff;
+    background-color: white;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
-
+ 
 .brandSection {
     flex: 1;
     background: #1e293b;
-    color: #fff;
+    color: white;
     padding: 60px 50px;
     display: flex;
     flex-direction: column;
@@ -53,14 +40,16 @@
 
 .featureList {
     list-style: none;
-    margin: 30px 0 0;
+    margin: 0;
     padding: 0;
+    margin-top: 30px;
 }
 
 .featureItem {
     display: flex;
     align-items: flex-start;
-    padding: 10px 0;
+    padding: 15px 0;
+    position: relative;
 }
 
 .checkIcon {
@@ -70,13 +59,29 @@
     color: rgba(255, 255, 255, 0.9);
 }
 
-/* ----- SECCIÓN DE FORMULARIO (para todos los forms) ----- */
-.formSection {
+.loginSection {
     flex: 1;
     padding: 60px 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.loginContainer {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+
+/* GENERAL */
+.container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
 .form {
@@ -93,12 +98,11 @@
     border: 1px solid #e0e0e0;
 }
 
-/* ----- TEXTOS ----- */
 .title {
     color: #333;
     font-weight: 600 !important;
+    margin-bottom: 15px !important;
     text-align: center;
-    margin-bottom: 8px !important;
 }
 
 .subtitle {
@@ -107,16 +111,14 @@
     margin-bottom: 24px !important;
 }
 
-/* ----- DIVISORES ----- */
 .divider {
     margin: 8px 0 24px 0 !important;
     background: linear-gradient(to right, transparent, #ddd, transparent) !important;
     height: 1px;
 }
 
-/* ----- CAMPOS DE TEXTO ----- */
 .textField {
-    margin-bottom: 16px !important;
+    margin-bottom: 8px !important;
 }
 
 .textField .MuiOutlinedInput-root {
@@ -127,57 +129,48 @@
     color: #555;
 }
 
-/* ----- BOTONES ----- */
 .submitButton {
-    padding: 14px !important;
+    padding: 12px !important;
     border-radius: 8px !important;
     font-weight: 600 !important;
     font-size: 1rem !important;
     margin-top: 8px !important;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%) !important;
-    color: white !important;
-    box-shadow: 0 4px 15px rgba(106, 17, 203, 0.2) !important;
+    background: #334155 !important;
     transition: all 0.3s ease !important;
-    border: none !important;
 }
 
 .submitButton:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(106, 17, 203, 0.3) !important;
+    box-shadow: 0 6px 20px rgba(17, 98, 203, 0.3) !important;
 }
 
-/* Variante más sobria (para login principal) */
-.submitButton.dark {
-    background: #334155 !important;
-}
-
-.submitButton.dark:hover {
-    box-shadow: 0 5px 15px rgba(51, 65, 85, 0.3) !important;
-}
-
-/* ----- ENLACES Y PIE ----- */
-.linksContainer, .footer {
-    margin-top: 25px;
+/* Footer and links */
+.footer {
+    margin-top: 16px;
     text-align: center;
-}
-
-.link, .footerLink {
-    display: inline-block;
-    color: #6a11cb !important;
-    font-weight: 500 !important;
-    transition: color 0.3s ease !important;
-}
-
-.link:hover, .footerLink:hover {
-    color: #2575fc !important;
 }
 
 .footerText {
     color: #666 !important;
 }
 
+.footerLink {
+    font-weight: 600 !important;
+    color: #6a11cb !important;
+    text-transform: none !important;
+    padding: 0 !important;
+    min-width: auto !important;
+}
+
+.footerLink:hover {
+    background-color: transparent !important;
+    color: #2575fc !important;
+}
+
+
 /* ----- RESPONSIVE DESIGN ----- */
-@media (max-width: 900px) {
+/* Celulares */
+@media (max-width: 640px){
     .loginContainer {
         flex-direction: column;
         min-height: auto;
@@ -196,7 +189,8 @@
     }
 }
 
-@media (max-width: 480px) {
+/* Tablets*/
+@media (min-width: 640px) and (max-width: 1024px) {
     .form {
         padding: 30px 24px;
         margin: 10px;
@@ -213,4 +207,9 @@
     .title {
         font-size: 1.8rem !important;
     }
+}
+
+/* Desktop */
+@media  (min-width: 1025px) {
+
 }
