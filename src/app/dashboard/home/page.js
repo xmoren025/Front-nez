@@ -5,7 +5,7 @@ import { Box, Typography, Button, Stack } from "@mui/material";
 
 // Icons
 import { Fitbit } from "@mui/icons-material";
-import CloseButton from "@/components/buttons/closeButton";
+import ShareModal from "@/components/modals/shareModal";
 
 export default function HomePage() {
   return (
@@ -41,6 +41,8 @@ export default function HomePage() {
           </Typography>
         </Box>
       </Box>
+
+      <ShareModal/>
     </Box>
   );
 }

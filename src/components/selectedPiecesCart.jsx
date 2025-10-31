@@ -7,6 +7,7 @@ import {
   Divider,
   Typography,
 } from "@mui/material";
+import RemoveButton from "./buttons/removeButton";
 
 function SelectedPiecesCart(){
     return(
@@ -14,7 +15,8 @@ function SelectedPiecesCart(){
             <Typography variant="h6" gutterBottom>Selected pieces</Typography>
             <Divider/>
             <Box>
-
+                <Typography variant ></Typography>
+                <RemoveButton/>
             </Box>
         </Box>
     );

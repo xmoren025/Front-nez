@@ -1,16 +1,99 @@
-"use client"
+"use client";
 
 import React from "react";
 import {
   Box,
+  Typography,
+  Divider,
+  InputLabel,
+  MenuItem,
+  FormControl,
+  Select,
 } from "@mui/material";
 
-function CreatePieceModal(){
-    return(
-        <Box>
+import CancelButton from "../buttons/cancelButton";
+import ActionButton from "../buttons/actionButton";
+import CloseButton from "../buttons/closeButton";
 
-        </Box>
-    );
+import styles from "./Modals.module.css";
+
+function CreatePieceModal() {
+  const [user, setAge] = React.useState("");
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+  return (
+    <Box className={styles.modalContainer}>
+      <Typography variant="h6"> Create a piece</Typography>
+      <CloseButton />
+      <Divider />
+      <Typography variant="subtitle1">Instructions here</Typography>
+
+      {/* Piece Name Field */}
+      <TextField
+        required
+        fullWidth
+        label="Puzzle Name"
+        name="puzzlename"
+        value={userData.puzzleName}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.puzzleName && Boolean(errors.puzzleName)}
+        helperText={touched.puzzleName && errors.puzzleName}
+        variant="outlined"
+        className={styles.textField}
+      />
+
+      {/* Description Field */}
+      <TextField
+        required
+        fullWidth
+        label="Puzzle Name"
+        name="puzzlename"
+        value={userData.puzzleName}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.puzzleName && Boolean(errors.puzzleName)}
+        helperText={touched.puzzleName && errors.puzzleName}
+        variant="outlined"
+        className={styles.textField}
+      />
+
+      {/* Command Field */}
+      <TextField
+        required
+        fullWidth
+        label="Puzzle Name"
+        name="puzzlename"
+        value={userData.puzzleName}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.puzzleName && Boolean(errors.puzzleName)}
+        helperText={touched.puzzleName && errors.puzzleName}
+        variant="outlined"
+        className={styles.textField}
+      />
+
+      {/* Image Field */}
+      <TextField
+        required
+        fullWidth
+        label="Puzzle Name"
+        name="puzzlename"
+        value={userData.puzzleName}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.puzzleName && Boolean(errors.puzzleName)}
+        helperText={touched.puzzleName && errors.puzzleName}
+        variant="outlined"
+        className={styles.textField}
+      />
+
+      <CancelButton />
+      <ActionButton />
+    </Box>
+  );
 }
 
 export default CreatePieceModal;

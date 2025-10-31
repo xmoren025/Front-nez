@@ -10,10 +10,12 @@ import {
   FormControl,
   Select,
 } from "@mui/material";
-import { ClassNames } from "@emotion/react";
+
 import CancelButton from "../buttons/cancelButton";
 import ActionButton from "../buttons/actionButton";
 import CloseButton from "../buttons/closeButton";
+
+import styles from "./Modals.module.css";
 
 function ShareModal() {
   const [user, setAge] = React.useState("");
@@ -21,8 +23,9 @@ function ShareModal() {
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+
   return (
-    <Box>
+    <Box className={styles.modalContainer}>
       <Typography variant="h6"> Share</Typography>
       <CloseButton/>
       <Divider />
@@ -31,7 +34,7 @@ function ShareModal() {
       {/* User select*/}
       <Box sx={{ minWidth: 150 }}>
         <FormControl fullWidth>
-          <InputLabel id="userSelect">Age</InputLabel>
+          <InputLabel id="userSelect">User</InputLabel>
           <Select
             labelId="userSelect"
             id="userSelect"
@@ -43,7 +46,7 @@ function ShareModal() {
           </Select>
         </FormControl>
       </Box>
-
+      
       <CancelButton/>
       <ActionButton/>
     </Box>
