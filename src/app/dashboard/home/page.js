@@ -1,13 +1,11 @@
 "use client";
 import React from "react";
 import NavBar from "@/components/navBar";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
+import { Box, Typography, Button, Stack } from "@mui/material";
 
 // Icons
 import { Fitbit } from "@mui/icons-material";
+import CloseButton from "@/components/buttons/closeButton";
 
 export default function HomePage() {
   return (

@@ -88,7 +88,7 @@ export default function ResetPasswordForm() {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <Lock color="primary" />
+                <Lock color="primary"/>
               </InputAdornment>
             ),
           }}

@@ -4,8 +4,8 @@ import React from "react";
 
 import NavBar from "@/components/navBar";
 import StepperElement from "@/components/stepperElement";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import { Box, Typography } from "@mui/material";
+
 export default function ChoosePieces() {
 
   return (
@@ -13,7 +13,7 @@ export default function ChoosePieces() {
       <NavBar />
       <Box>
         <Typography className= "title" variant="h4" gutterBottom paddingTop={5}>
-          Choose pieces
+          Create a Puzzle
         </Typography>
         <StepperElement/>
       </Box>

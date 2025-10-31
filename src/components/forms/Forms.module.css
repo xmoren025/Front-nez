@@ -118,7 +118,8 @@
 }
 
 .textField {
-    margin-bottom: 8px !important;
+    margin-bottom: 10px !important;
+    margin-top: 10px !important;
 }
 
 .textField .MuiOutlinedInput-root {
@@ -134,7 +135,7 @@
     border-radius: 8px !important;
     font-weight: 600 !important;
     font-size: 1rem !important;
-    margin-top: 8px !important;
+    margin-top: 18px !important;
     background: #334155 !important;
     transition: all 0.3s ease !important;
 }
@@ -156,7 +157,7 @@
 
 .footerLink {
     font-weight: 600 !important;
-    color: #6a11cb !important;
+    color: #2f4c8a !important;
     text-transform: none !important;
     padding: 0 !important;
     min-width: auto !important;

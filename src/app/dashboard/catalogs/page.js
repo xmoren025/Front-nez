@@ -10,6 +10,7 @@ export default function Catalogs(){
     return(
         <Box>
             <NavBar/>
+            <InfoTable/>
         </Box>
     );
 }

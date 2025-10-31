@@ -23,7 +23,7 @@ import {
   ExpandMore
 } from "@mui/icons-material";
 
-export default function NavBar() {
+function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [openSections, setOpenSections] = useState({
@@ -238,3 +238,5 @@ export default function NavBar() {
     </>
   );
 }
+
+export default NavBar;

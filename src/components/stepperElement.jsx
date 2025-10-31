@@ -15,27 +15,28 @@ import CustomTabsBoard from "./boards/customTabsBoard";
 // Iconos
 import {
   Extension,
-  Checklist,  
+  Checklist,
   Storage,
   AppRegistration,
 } from "@mui/icons-material";
 
-import styles from './Stepper.module.css';
+import styles from "./Stepper.module.css";
 
 // Definir tabs para cada paso
 const steps = [
   {
     label: "Choose your pieces",
     icon: <Extension />,
-    tabs: [
-      { label: "My pieces", content: "Contenido del Tab 1 de Pieces" },
-    ],
+    tabs: [{ label: "My pieces", content: "Contenido del Tab 1 de Pieces" }],
   },
   {
-    label: "Choose your requirements", 
+    label: "Choose your requirements",
     icon: <Checklist />,
     tabs: [
-      { label: "Requirements Tab 1", content: "Contenido del Tab 1 de Requirements" },
+      {
+        label: "Requirements Tab 1",
+        content: "Contenido del Tab 1 de Requirements",
+      },
     ],
   },
   {
@@ -50,16 +51,14 @@ const steps = [
   {
     label: "Join your app",
     icon: <AppRegistration />,
-    tabs: [
-      { label: "Join Tab 1", content: "Contenido del Tab 1 de Join" },
-    ],
+    tabs: [{ label: "Join Tab 1", content: "Contenido del Tab 1 de Join" }],
   },
 ];
 
 function StepperElement() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   const [activeStep, setActiveStep] = React.useState(0);
 
   const isFirstStep = activeStep === 0;
@@ -86,24 +85,32 @@ function StepperElement() {
       {/* Stepper*/}
       <Box className={styles.stepper}>
         <div className={styles.stepperLine}></div>
-        
+
         {/* Pasos */}
         {steps.map((step, index) => (
-          <div 
-            key={step.label} 
+          <div
+            key={step.label}
             className={styles.step}
             onClick={handleStep(index)}
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: "pointer" }}
           >
             {/* Icono - SOLO activo es azul */}
-            <div className={`${styles.stepIcon} ${activeStep === index ? styles.stepIconActive : ''}`}>
+            <div
+              className={`${styles.stepIcon} ${
+                activeStep === index ? styles.stepIconActive : ""
+              }`}
+            >
               {React.cloneElement(step.icon, {
-                sx: { fontSize: '1.25rem' }
+                sx: { fontSize: "1.25rem" },
               })}
             </div>
-            
+
             {/* Label - SOLO activo es oscuro */}
-            <div className={`${styles.stepLabel} ${activeStep === index ? styles.stepLabelActive : ''}`}>
+            <div
+              className={`${styles.stepLabel} ${
+                activeStep === index ? styles.stepLabelActive : ""
+              }`}
+            >
               {step.label}
             </div>
           </div>
@@ -112,26 +119,22 @@ function StepperElement() {
 
       {/* Contenido del paso actual */}
       <Box className={styles.contentContainer}>
-        <Typography className={styles.contentTitle}>
+        <Typography variant="h5" className={styles.contentTitle}>
           Step {activeStep + 1}: {steps[activeStep].label}
         </Typography>
-        
+
         {/* Integrar CustomTabsBoard con los tabs del paso actual */}
         <CustomTabsBoard items={steps[activeStep].tabs} />
-      </Box>
+        {/* Botones de navegación */}
+        <Box className={styles.buttonsContainer}>
+          <BackButton onClick={handleBack} disabled={isFirstStep} />
 
-      {/* Botones de navegación */}
-      <Box className={styles.buttonsContainer}>
-        <BackButton 
-          onClick={handleBack}
-          disabled={isFirstStep}
-        />
-        
-        <NextButton 
-          onClick={handleNext}
-          disabled={isLastStep}
-          isLastStep={isLastStep}
-        />
+          <NextButton
+            onClick={handleNext}
+            disabled={isLastStep}
+            isLastStep={isLastStep}
+          />
+        </Box>
       </Box>
     </Box>
   );

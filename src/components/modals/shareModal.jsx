@@ -1,16 +1,53 @@
-"use client"
+"use client";
 
 import React from "react";
 import {
   Box,
+  Typography,
+  Divider,
+  InputLabel,
+  MenuItem,
+  FormControl,
+  Select,
 } from "@mui/material";
+import { ClassNames } from "@emotion/react";
+import CancelButton from "../buttons/cancelButton";
+import ActionButton from "../buttons/actionButton";
+import CloseButton from "../buttons/closeButton";
 
-function ShareModal(){
-    return(
-        <Box>
+function ShareModal() {
+  const [user, setAge] = React.useState("");
 
-        </Box>
-    );
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+  return (
+    <Box>
+      <Typography variant="h6"> Share</Typography>
+      <CloseButton/>
+      <Divider />
+      <Typography variant="subtitle1">Instructions here</Typography>
+
+      {/* User select*/}
+      <Box sx={{ minWidth: 150 }}>
+        <FormControl fullWidth>
+          <InputLabel id="userSelect">Age</InputLabel>
+          <Select
+            labelId="userSelect"
+            id="userSelect"
+            value={user}
+            label="User"
+            onChange={handleChange}
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+
+      <CancelButton/>
+      <ActionButton/>
+    </Box>
+  );
 }
 
 export default ShareModal;

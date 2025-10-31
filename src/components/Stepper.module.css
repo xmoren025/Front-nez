@@ -76,18 +76,16 @@
 
 /* Contenido - Ajustado para el board */
 .contentContainer {
-  margin-top: 2rem;
+  margin-top: 3rem;
   padding: 0;
   background-color: transparent;
   border-radius: 8px;
 }
 
 .contentTitle {
-  margin-bottom: 1.5rem;
   color: #1e293b;
   font-weight: 600;
-  font-size: 1.25rem;
-  text-align: center;
+  text-align: left;
 }
 
 /* Botones */
@@ -161,7 +159,7 @@
 }
 
 .contentContainer{
-  margin-left: 320px;
+  margin-left: 310px;
 }
 
 }

@@ -116,7 +116,7 @@ function ForgotPasswordForm() {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <Email />
+                  <Email color="primary"/>
                 </InputAdornment>
               ),
             }}

@@ -153,7 +153,7 @@ function LoginForm() {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <Email />
+                  <Email color="primary"/>
                 </InputAdornment>
               ),
             }}
@@ -177,13 +177,20 @@ function LoginForm() {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <Lock />
+                  <Lock color="primary"/>
                 </InputAdornment>
               ),
             }}
             variant="outlined"
             className={styles.textField}
           />
+          <Button
+            href="/auth/forgot-password"
+            variant="text"
+            className={styles.footerLink}
+          >
+            I forgot my password
+          </Button>
 
           <Button
             variant="contained"
@@ -196,15 +203,6 @@ function LoginForm() {
 
           <Box className={styles.footer}>
             <Typography variant="body2" className={styles.footerText}>
-              Already have an account?{" "}
-              <Button
-                href="/auth/forgot-password"
-                variant="text"
-                className={styles.footerLink}
-              >
-                I forgot my password
-              </Button>
-
               <Button
                 href="/auth/register-user"
                 variant="text"
