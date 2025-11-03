@@ -1,54 +1,121 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
   Divider,
   TextField,
-  Switch
+  Switch,
+  Modal,
+  FormControlLabel,
 } from "@mui/material";
 
 import CancelButton from "../buttons/cancelButton";
 import ActionButton from "../buttons/actionButton";
 import CloseButton from "../buttons/closeButton";
+import SaveButton from "../buttons/saveButton";
 
 import styles from "./Modals.module.css";
 
 function SaveServiceModal() {
-  const [user, setAge] = React.useState("");
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
+  const [formData, setFormData] = useState({
+    puzzleName: "",
+    employ: true,
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  const handleSwitchChange = (e) => {
+    setFormData((prev) => ({ ...prev, employ: e.target.checked }));
+  };
+
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.puzzleName.trim()) newErrors.puzzleName = "Puzzle name is required";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = () => {
+    if (!validate()) return;
+    console.log("Service saved:", formData);
+    handleClose();
+  };
+
   return (
-    <Box className={styles.modalContainer}>
-      <Typography variant="h6"> Save service</Typography>
-      <CloseButton />
-      <Divider />
-      <Typography variant="subtitle1">Instructions here</Typography>
+    <div>
+      <SaveButton onClick={handleOpen} />
 
-      {/* Puzzle Name Field */}
-      <TextField
-        required
-        fullWidth
-        label="Puzzle Name"
-        name="puzzlename"
-        value={userData.puzzleName}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        error={touched.puzzleName && Boolean(errors.puzzleName)}
-        helperText={touched.puzzleName && errors.puzzleName}
-        variant="outlined"
-        className={styles.textField}
-      />
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box className={styles.modalContainer}>
+          <Box className={styles.headerModal}>
+            <Typography variant="h5" className={styles.modalTitle}>
+              Save service
+            </Typography>
+            <CloseButton onClick={handleClose} className={styles.closeButton} />
+          </Box>
+          <Divider className={styles.divider}/>
+          <Typography variant="subtitle1" className={styles.instructions}>Instructions here</Typography>
 
-      <Typography variant="subtitle1">Employ</Typography>
-      <Switch {...label} defaultChecked />
-      <Typography variant="caption">what is employ here</Typography>
-      <CancelButton />
-      <ActionButton />
-    </Box>
+          {/* Puzzle Name Field */}
+          <TextField
+            required
+            fullWidth
+            label="Puzzle Name"
+            name="puzzleName"
+            value={formData.puzzleName}
+            onChange={handleChange}
+            error={Boolean(errors.puzzleName)}
+            helperText={errors.puzzleName}
+            variant="outlined"
+            className={styles.textField}
+          />
+
+          {/* Employ Switch */}
+          <Box className={styles.switchContainer}>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={formData.employ}
+                  onChange={handleSwitchChange}
+                  color="primary"
+                  className={styles.switch}
+                />
+              }
+              label="Employ"
+            />
+            <Typography variant="caption" display="block">
+              Toggle this to employ or disable the service.
+            </Typography>
+          </Box>
+
+          <Box className={styles.buttonsContainer} >
+            <CancelButton onClick={handleClose} />
+            <ActionButton
+              text="Save"
+              variant="contained"
+              onClick={handleSubmit}
+              sx={{ borderRadius: 1 }}
+            />
+          </Box>
+        </Box>
+      </Modal>
+    </div>
   );
 }
 

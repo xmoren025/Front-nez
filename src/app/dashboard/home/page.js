@@ -5,6 +5,9 @@ import { Box, Typography, Button, Stack } from "@mui/material";
 
 // Icons
 import { Fitbit } from "@mui/icons-material";
+import CreateCatalogModal from "@/components/modals/createCatalogModal";
+import CreatePieceModal from "@/components/modals/createPieceModal";
+import SaveServiceModal from "@/components/modals/saveServiceModal";
 import ShareModal from "@/components/modals/shareModal";
 
 export default function HomePage() {
@@ -41,8 +44,6 @@ export default function HomePage() {
           </Typography>
         </Box>
       </Box>
-
-      <ShareModal/>
     </Box>
   );
 }
