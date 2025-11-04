@@ -1,8 +1,7 @@
-"use client";
-import InfoTable from "@/components/infoTable";
+"use client"
+
 import React from "react";
-import { Box } from "@mui/material";
-import NavBar from "@/components/navBar";
+import InfoTable from "./InfoTable";
 
 const columns = [
   { id: "cookstoveNo", label: "Cookstove no." },
@@ -18,11 +17,7 @@ const data = [
   { id: 4, cookstoveNo: "0015", buyerName: "Austin Yew", status: "Sent" },
 ];
 
-export default function ListPuzzles() {
-  return (
-    <Box>
-      <NavBar/>
-       <InfoTable title="Sales Baseline Form" columns={columns} data={data} />
-    </Box>
-  );
+function ExamplePage() {
+  return <InfoTable title="Sales Baseline Form" columns={columns} data={data} />;
 }
+export default ExamplePage;

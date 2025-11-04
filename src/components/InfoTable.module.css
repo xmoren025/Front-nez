@@ -1,0 +1,133 @@
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+}
+
+/* ===== Estilos generales ===== */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.table th {
+  background-color: #f7f9fb;
+  font-weight: 600;
+  color: #333;
+}
+
+.tableRow:hover {
+  background-color: #f5f7fa;
+}
+
+/* ===== Acciones (botones de editar / eliminar / ver / enviar) ===== */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actionButton {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.actionButton.view {
+  color: #16a34a;
+  background: rgba(22, 163, 74, 0.1);
+}
+
+.actionButton.send {
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.actionButton.edit {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.actionButton.delete {
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.actionButton:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Responsividad móvil ===== */
+@media (max-width: 768px) {
+  .tableContainer {
+    overflow: visible;
+  }
+
+  .table,
+  .table thead,
+  .table tbody,
+  .table th,
+  .table td,
+  .table tr {
+    display: block;
+  }
+
+  /* Ocultamos la cabecera */
+  .table thead {
+    display: none;
+  }
+
+  /* Cada fila se convierte en una tarjeta */
+  .table tr {
+    margin-bottom: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 12px;
+    background: #fff;
+  }
+
+  .table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border: none;
+    position: relative;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #555;
+    text-transform: capitalize;
+  }
+
+  .actions {
+    justify-content: flex-end;
+  }
+}
+
+/* ===== Estilos de estado ===== */
+.status {
+  font-weight: 600;
+}
+
+.status.sent {
+  color: #16a34a;
+}
+
+.status.pending {
+  color: #f59e0b;
+}

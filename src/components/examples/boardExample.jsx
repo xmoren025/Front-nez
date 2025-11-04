@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react";
-import CustomTabsBoard from "./customTabsBoard"; 
+import CustomTabsBoard from "../boards/customTabsBoard"; 
 
 function Board() {
   const tabs = [

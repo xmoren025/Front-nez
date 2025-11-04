@@ -1,0 +1,28 @@
+.card {
+  margin: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.cardTitle {
+  display: flex;
+  float: left;
+  font-weight: 600;
+  color: #1a202c;
+}
+
+.cardCaption {
+  color: #6b7280;
+}
+
+.cardContent {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}

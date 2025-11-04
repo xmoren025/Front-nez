@@ -5,12 +5,10 @@ import { Box, Typography, Button, Stack } from "@mui/material";
 
 // Icons
 import { Fitbit } from "@mui/icons-material";
-import CreateCatalogModal from "@/components/modals/createCatalogModal";
-import CreatePieceModal from "@/components/modals/createPieceModal";
-import SaveServiceModal from "@/components/modals/saveServiceModal";
-import ShareModal from "@/components/modals/shareModal";
+import CatalogComponent from "@/components/puzzleComponents/catalogComponent";
 
 export default function HomePage() {
+
   return (
     <Box>
       <NavBar />

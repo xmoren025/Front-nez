@@ -7,7 +7,7 @@ import {
   Divider,
   Typography,
 } from "@mui/material";
-import RemoveButton from "./buttons/removeButton";
+import RemoveButton from "../buttons/removeButton";
 
 function SelectedPiecesCart(){
     return(
