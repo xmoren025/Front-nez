@@ -20,14 +20,16 @@ const columns = [
     { id: 3, cookstoveNo: "0014", buyerName: "Peg Legie", status: "Sent" },
     { id: 4, cookstoveNo: "0015", buyerName: "Austin Yew", status: "Sent" },
   ];
-  
-export default function PuzzleInformation() {
+
   const tabs = [
     { label: "1", content: "Contenido del Tab 1" },
     { label: "2", content: "Contenido del Tab 2" },
     { label: "3", content: "Contenido del Tab 3" },
     { label: "4", content: "Contenido del Tab 4" },
   ];
+  
+export default function PuzzleInformation() {
+  
   return (
     <Box>
       <NavBar/>
