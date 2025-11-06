@@ -5,9 +5,9 @@
   /* Colores */
   --color-primary: #1e293b;
   --color-primary-light: #334155;
-  --color-secondary: #1D9CDB;
-  --color-accent: #005A9C;
-  --color-icons: #5B95CC;
+  --color-secondary: #1d9cdb;
+  --color-accent: #005a9c;
+  --color-icons: #5b95cc;
 
   /* Escala de grises */
   --color-gray-50: #f8fafc;
@@ -15,7 +15,6 @@
   --color-gray-200: #e2e8f0;
   --color-gray-300: #cbd5e1;
   --color-gray-400: #94a3b8;
-
 }
 
 /* Reset */
@@ -27,30 +26,33 @@
 
 /* Base */
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background: var(--color-gray-50);
   color: var(--color-primary);
 }
 
-/* Layout base */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+.contentSpace {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding-left: 15%;
 }
 
+.title {
+  
+}
 
 /* Celulares */
 @media (max-width: 640px) {
-  .title {
-    padding-left: 50;
+  .contentSpace {
+    padding-left: 0%;
   }
 
   .container {
     padding: 0 1rem;
   }
-
 
   .mobile-only {
     display: block;
@@ -64,8 +66,8 @@ body {
 
 /* Tablets */
 @media (min-width: 640px) and (max-width: 1024px) {
-  .title {
-    padding-left: 120px;
+  .contentSpace {
+    padding-left: 0%;
   }
 
   .mobile-only,
@@ -80,10 +82,6 @@ body {
 
 /* Computadoras / Laptops */
 @media (min-width: 1025px) {
-  .title {
-    padding-left: 18rem;
-  }
-
   .mobile-only,
   .tablet-only {
     display: none;

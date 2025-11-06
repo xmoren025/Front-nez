@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import RemoveButton from "../buttons/removeButton";
 
-function SelectedPiecesCart(){
+function SelectedElementsCart(){
     return(
         <Box>
             <Typography variant="h6" gutterBottom>Selected pieces</Typography>
@@ -22,4 +22,4 @@ function SelectedPiecesCart(){
     );
 }
 
-export default SelectedPiecesCart;
+export default SelectedElementsCart;

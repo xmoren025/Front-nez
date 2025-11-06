@@ -32,7 +32,7 @@ const typeIcons = {
   Efficiency: <BoltIcon className={styles.iconEfficiency} />,
   Reliability: <CloudDoneIcon className={styles.iconReliability} />,
   Security: <GppGoodIcon className={styles.iconSecurity} />,
-  Default: <InfoIcon className={styles.iconDefault} />,
+  Default: <InfoIcon className={styles.iconDefault}  />,
 };
 
 function RequirementComponent({ name, type, description }) {
@@ -48,15 +48,15 @@ function RequirementComponent({ name, type, description }) {
       }`}
     >
       <CardHeader
-        title={<Typography variant="h6">{name}</Typography>}
-        subheader={<Typography variant="body2">{type}</Typography>}
+        title={<Typography variant="h6">{name} Requirement Name</Typography>}
+        subheader={<Typography variant="body2">{type} {icon} </Typography>}
         action={<AddButton />}
       />
       <Divider />
       <CardContent>
         <List disablePadding>
           <ListItemButton onClick={handleClick}>
-            <ListItemIcon>{icon}</ListItemIcon>
+            <ListItemIcon><InfoIcon/></ListItemIcon>
             <ListItemText primary="More information" />
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
@@ -64,7 +64,7 @@ function RequirementComponent({ name, type, description }) {
             <List component="div" disablePadding>
               <ListItemButton sx={{ pl: 6 }}>
                 <ListItemText
-                  primary={description || "No extra info available."}
+                  primary={description || "Requirement extra information."}
                 />
               </ListItemButton>
             </List>

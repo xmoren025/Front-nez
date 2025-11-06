@@ -1,15 +1,17 @@
 "use client";
 
 import React from "react";
+
+// material
 import { Card, CardHeader, Typography } from "@mui/material";
 
-// Íconos
+// Icon
 import { Extension, FolderOpen, TaskAlt } from "@mui/icons-material";
 
-// Componente
-import AddButton from "../buttons/addButton";
+// Component
+import RemoveButton from "../buttons/removeButton";
 
-// Estilos
+// Style
 import styles from "./CardsComponent.module.css";
 
 function ElementSelected({ name, type }) {
@@ -31,7 +33,7 @@ function ElementSelected({ name, type }) {
             {name || "Selected element name"}
           </Typography>
         }
-        action={<AddButton />}
+        action={<RemoveButton/>}
       />
     </Card>
   );

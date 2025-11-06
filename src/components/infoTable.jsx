@@ -24,6 +24,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
 import styles from "./InfoTable.module.css"; 
+import EditButton from "./buttons/editButton";
+import DeleteButton from "./buttons/deleteButton";
 
 // ======== Funciones auxiliares para ordenamiento ========
 function descendingComparator(a, b, orderBy) {
@@ -228,29 +230,6 @@ export default function InfoTable({ title = "Data Table", columns, data }) {
                     {columns.map((col) => {
                       const cellValue = row[col.id];
 
-                      // si es la columna de status, le damos color
-                      if (col.id === "status") {
-                        return (
-                          <TableCell
-                            key={col.id}
-                            align={col.numeric ? "right" : "left"}
-                            data-label={col.label}
-                          >
-                            <span
-                              className={`${styles.status} ${
-                                cellValue === "Sent"
-                                  ? styles.sent
-                                  : cellValue === "Pending"
-                                  ? styles.pending
-                                  : ""
-                              }`}
-                            >
-                              {cellValue}
-                            </span>
-                          </TableCell>
-                        );
-                      }
-
                       // si es la columna de acciones
                       if (col.id === "actions") {
                         return (
@@ -260,25 +239,12 @@ export default function InfoTable({ title = "Data Table", columns, data }) {
                             className={styles.actions}
                           >
                             <button
-                              className={`${styles.actionButton} ${styles.view}`}
-                            >
-                              View
-                            </button>
-                            <button
                               className={`${styles.actionButton} ${styles.send}`}
                             >
-                              Send
+                              Publish
                             </button>
-                            <button
-                              className={`${styles.actionButton} ${styles.edit}`}
-                            >
-                              ✏️
-                            </button>
-                            <button
-                              className={`${styles.actionButton} ${styles.delete}`}
-                            >
-                              🗑️
-                            </button>
+                            <EditButton/>
+                            <DeleteButton/>
                           </TableCell>
                         );
                       }

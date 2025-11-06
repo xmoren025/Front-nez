@@ -4,6 +4,8 @@ import InfoTable from "@/components/infoTable";
 import {Box} from "@mui/material"
 import NavBar from "@/components/navBar";
 
+import "@/styles/globals.css";
+
 const columns = [
     { id: "cookstoveNo", label: "Cookstove no." },
     { id: "buyerName", label: "Buyer Name" },

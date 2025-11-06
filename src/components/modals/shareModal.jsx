@@ -12,6 +12,7 @@ import {
   FormControl,
   Select,
   Modal,
+  OutlinedInput
 } from "@mui/material";
 
 // icons
@@ -88,20 +89,35 @@ function ShareModal() {
               <Select
                 labelId="userSelectLabel"
                 id="userSelect"
-                value={formData.selectedUser}
+                multiple // <-- habilita selección múltiple
+                value={formData.selectedUser || []} // debe ser un array
                 label="User"
-                onChange={handleChange}
+                onChange={(event) => {
+                  const {
+                    target: { value },
+                  } = event;
+                  setFormData({
+                    ...formData,
+                    selectedUser:
+                      typeof value === "string" ? value.split(",") : value,
+                  });
+                }}
+                input={<OutlinedInput label="User" />} // igual que en tu ejemplo de MUI
                 className={styles.select}
+                MenuProps={{
+                  PaperProps: {
+                    style: {
+                      maxHeight: 48 * 4.5 + 8,
+                      width: 250,
+                    },
+                  },
+                }}
               >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value="alice@example.com">alice@example.com</MenuItem>
-                <MenuItem value="bob@example.com">bob@example.com</MenuItem>
-                <MenuItem value="charlie@example.com">
-                  charlie@example.com
-                </MenuItem>
+                <MenuItem value="alice@example.com">user example 1</MenuItem>
+                <MenuItem value="bob@example.com">user example 2</MenuItem>
+                <MenuItem value="charlie@example.com">user example 3</MenuItem>
               </Select>
+
               {errors.selectedUser && (
                 <Typography color="error" variant="caption">
                   {errors.selectedUser}
@@ -112,7 +128,7 @@ function ShareModal() {
 
           {/* Botones de acción */}
           <Box className={styles.buttonsContainer}>
-            <CancelButton onClick={handleClose}/>
+            <CancelButton onClick={handleClose} />
             <ActionButton
               text="Share"
               variant="contained"

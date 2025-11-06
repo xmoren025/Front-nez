@@ -2,9 +2,8 @@
 .navbar {
   background: #1e293b;
   color: white;
-      max-width: 100vh;
-
-  width: 230px;
+  max-width: 100vh;
+  width: 240px;
   height: 100vh;
   position: fixed;
   left: 0;
@@ -12,12 +11,6 @@
   display: flex;
   flex-direction: column;
   z-index: 1000;
-}
-
-/* Espacio para el contenido en desktop */
-.contentSpace {
-  width: 280px;
-  flex-shrink: 0;
 }
 
 /* Logo section */
@@ -222,6 +215,7 @@
 @media (max-width: 640px) or ((min-width: 640px) and (max-width: 1024px)) {
   .navbar {
     transform: translateX(-100%);
+    width: 100%;
     transition: transform 0.3s ease;
   }
 
@@ -253,7 +247,6 @@
 /* ========== RESPONSIVE ========== */
 /* Celular */
 @media (max-width: 640px) {
-
 }
 
 /* Tablet */
