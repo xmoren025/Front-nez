@@ -10,7 +10,7 @@ import { useTheme } from "@mui/material/styles";
 // Componentes reutilizables
 import BackButton from "./buttons/backButton";
 import NextButton from "./buttons/nextButton";
-import CustomTabsBoard from "./boards/customTabsBoard";
+import CustomTabsBoard from "./customTabsBoard";
 
 // Iconos
 import {

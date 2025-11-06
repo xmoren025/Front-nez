@@ -2,7 +2,7 @@
 
 import Gallery from "@/components/gallery";
 import InfoTable from "@/components/infoTable";
-import CustomTabsBoard from "@/components/boards/customTabsBoard";
+import CustomTabsBoard from "@/components/customTabsBoard";
 import {Box} from "@mui/material"
 import NavBar from "@/components/navBar";
 

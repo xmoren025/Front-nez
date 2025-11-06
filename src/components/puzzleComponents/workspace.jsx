@@ -27,12 +27,6 @@ const Workspace = ({ workspacePieces }) => {
               workspacePieces.length === 0 ? "center" : "flex-start",
           }}
         >
-          {workspacePieces.length === 0 && (
-            <Typography variant="h6" color="error">
-              workspace
-            </Typography>
-          )}
-
           {workspacePieces.map((piece, index) => (
             <Draggable
               key={piece.uid}

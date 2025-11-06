@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-
-// material
 import {
   Card,
   CardHeader,
@@ -16,52 +14,58 @@ import {
   Collapse,
 } from "@mui/material";
 
+import {
+  Info as InfoIcon,
+  GppGood as GppGoodIcon, // Security
+  Bolt as BoltIcon, // Efficiency
+  CloudDone as CloudDoneIcon, // Reliability
+} from "@mui/icons-material";
+
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 
-// icon
-import InfoIcon from "@mui/icons-material/Info";
-
-// Components
 import AddButton from "../buttons/addButton";
-
-// styles
 import styles from "./CardsComponent.module.css";
 
-function RequirementComponent() {
-  const [open, setOpen] = useState(true);
+// Mapeo de íconos
+const typeIcons = {
+  Efficiency: <BoltIcon className={styles.iconEfficiency} />,
+  Reliability: <CloudDoneIcon className={styles.iconReliability} />,
+  Security: <GppGoodIcon className={styles.iconSecurity} />,
+  Default: <InfoIcon className={styles.iconDefault} />,
+};
 
+function RequirementComponent({ name, type, description }) {
+  const [open, setOpen] = useState(true);
   const handleClick = () => setOpen((prev) => !prev);
 
+  const icon = typeIcons[type] || typeIcons.Default;
+
   return (
-    <Card className={styles.card}>
+    <Card
+      className={`${styles.card} ${
+        styles[type?.toLowerCase()] || styles.default
+      }`}
+    >
       <CardHeader
-        title={
-          <Typography variant="h6" className={styles.cardTitle}>
-            Requirement name
-          </Typography>
-        }
-        subheader={
-          <Typography variant="body2" className={styles.cardCaption}>
-            Requirement type
-          </Typography>
-        }
+        title={<Typography variant="h6">{name}</Typography>}
+        subheader={<Typography variant="body2">{type}</Typography>}
         action={<AddButton />}
       />
       <Divider />
-      <CardContent className={styles.cardContent}>
+      <CardContent>
         <List disablePadding>
           <ListItemButton onClick={handleClick}>
-            <ListItemIcon>
-              <InfoIcon color="primary" />
-            </ListItemIcon>
+            <ListItemIcon>{icon}</ListItemIcon>
             <ListItemText primary="More information" />
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItemButton sx={{ pl: 6 }}>
-                <ListItemText primary="Requirement extra information here" />
+                <ListItemText
+                  primary={description || "No extra info available."}
+                />
               </ListItemButton>
             </List>
           </Collapse>

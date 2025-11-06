@@ -5,9 +5,6 @@ import React from "react";
 // material
 import {Card, CardHeader, CardContent, Typography} from "@mui/material";
 
-// icon 
-
-
 // component
 import AddButton from "../buttons/addButton";
 
@@ -28,7 +25,7 @@ function CatalogComponent() {
       />
       <CardContent className={styles.cardContent}>
         <Typography variant="body2" className={styles.cardCaption}>
-          Requirement type
+          Date creation
         </Typography>
       </CardContent>
     </Card>

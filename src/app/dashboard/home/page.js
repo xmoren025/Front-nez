@@ -96,7 +96,7 @@ export default function HomePage() {
 
         <Button
           variant="contained"
-          href="/../dashboard/create-puzzle/choose-pieces"
+          href="/../dashboard/create-puzzle"
           sx={{ mt: 2, width: 310 }}
         >
           Get started
