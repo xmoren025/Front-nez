@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+
+// material
 import { Tabs, Tab, Box, Typography } from "@mui/material";
 
 function CustomTabsBoard({ items = [] }) {

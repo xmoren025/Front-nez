@@ -8,7 +8,7 @@ import {Card, CardHeader, CardContent, Typography} from "@mui/material";
 // component
 import AddButton from "../buttons/addButton";
 
-// styles
+// style
 import styles from "./CardsComponent.module.css";
 
 function CatalogComponent() {

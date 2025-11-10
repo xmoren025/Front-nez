@@ -2,11 +2,14 @@
 
 import React from "react";
 
+// material
 import {
   Box,
   Divider,
   Typography,
 } from "@mui/material";
+
+// component
 import RemoveButton from "../buttons/removeButton";
 
 function SelectedElementsCart(){

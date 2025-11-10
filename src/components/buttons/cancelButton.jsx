@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+
+// material
+import {Box, Button} from "@mui/material"
 
 function CancelButton({ onClick }) {
   return (

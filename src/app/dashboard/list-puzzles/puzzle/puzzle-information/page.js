@@ -1,11 +1,17 @@
 "use client";
 
+// material
+import {Box} from "@mui/material"
+
+// icon
+
+//component
 import Gallery from "@/components/gallery";
 import InfoTable from "@/components/infoTable";
 import CustomTabsBoard from "@/components/customTabsBoard";
-import {Box} from "@mui/material"
 import NavBar from "@/components/navBar";
 
+// style
 import "@/styles/globals.css";
 
 

@@ -1,8 +1,12 @@
 "use client";
 
 import React from "react";
-import Autorenew from "@mui/icons-material/Autorenew";
+
+// material
 import { Box, IconButton, Tooltip } from "@mui/material";
+
+//icon
+import Autorenew from "@mui/icons-material/Autorenew";
 
 function ClearButton() {
   return (

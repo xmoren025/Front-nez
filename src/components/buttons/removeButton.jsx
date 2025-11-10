@@ -1,8 +1,12 @@
 "use client";
 
 import React from "react";
-import RemoveShoppingCart from "@mui/icons-material/RemoveShoppingCart";
+
+// material 
 import { Box, IconButton, Tooltip } from "@mui/material";
+
+// icon
+import RemoveShoppingCart from "@mui/icons-material/RemoveShoppingCart";
 
 function RemoveButton() {
   return (

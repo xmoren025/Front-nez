@@ -1,7 +1,8 @@
 "use client";
 
+// component
 import ForgotPasswordForm from "@/components/forms/forgotPasswordForm";
-import React from "react";
+
 
 export default function ForgotPassword() {
   return <ForgotPasswordForm/>;

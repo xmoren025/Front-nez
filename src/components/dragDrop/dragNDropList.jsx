@@ -1,9 +1,15 @@
 "use client";
 
 import React from "react";
+
+// material
 import { Box, Typography, Paper } from "@mui/material";
-import { Droppable, Draggable } from "@hello-pangea/dnd";
+
+// component
 import DragNDropElement from "./dragNDropElement";
+
+// moar
+import { Droppable, Draggable } from "@hello-pangea/dnd";
 
 const DragNDropList = ({ pieces }) => {
   return (

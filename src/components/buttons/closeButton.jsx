@@ -1,8 +1,12 @@
 "use client";
 
 import React from "react";
-import Close from "@mui/icons-material/Close";
+
+// material
 import { Box, IconButton, Tooltip } from "@mui/material";
+
+// icon
+import Close from "@mui/icons-material/Close";
 
 function CloseButton({onClick}) {
   return (

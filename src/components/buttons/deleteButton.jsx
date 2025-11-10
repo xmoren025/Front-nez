@@ -1,8 +1,12 @@
 "use client";
 
 import React from "react";
-import Delete from "@mui/icons-material/Delete";
+
+// material
 import { Box, IconButton, Tooltip } from "@mui/material";
+
+// icon
+import Delete from "@mui/icons-material/Delete";
 
 function DeleteButton() {
   return (

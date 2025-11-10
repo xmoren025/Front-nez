@@ -1,9 +1,15 @@
 "use client";
-import InfoTable from "@/components/infoTable";
-import React from "react";
+
+// material
 import { Box } from "@mui/material";
+
+// icon
+
+// component
+import InfoTable from "@/components/infoTable";
 import NavBar from "@/components/navBar";
 
+// style
 import "@/styles/globals.css";
 
 const columns = [

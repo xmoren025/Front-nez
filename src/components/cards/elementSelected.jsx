@@ -5,13 +5,13 @@ import React from "react";
 // material
 import { Card, CardHeader, Typography } from "@mui/material";
 
-// Icon
+// icon
 import { Extension, FolderOpen, TaskAlt } from "@mui/icons-material";
 
-// Component
+// component
 import RemoveButton from "../buttons/removeButton";
 
-// Style
+// style
 import styles from "./CardsComponent.module.css";
 
 function ElementSelected({ name, type }) {

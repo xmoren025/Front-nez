@@ -1,17 +1,14 @@
 // components/NavBar.jsx
 'use client';
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import styles from './NavBar.module.css';
 
-// Elements MUI
+// material
 import {
   Avatar,
   ButtonBase,
 } from "@mui/material";
 
-// Iconos MUI
+// icon
 import {
   Extension,
   AddBox,
@@ -22,6 +19,13 @@ import {
   ExpandLess,
   ExpandMore
 } from "@mui/icons-material";
+
+// style
+import styles from './NavBar.module.css';
+
+// moar
+import Link from 'next/link';
+import Image from 'next/image';
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);

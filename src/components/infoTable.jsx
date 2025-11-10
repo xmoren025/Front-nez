@@ -1,6 +1,7 @@
 "use client";
 import * as React from "react";
-import PropTypes from "prop-types";
+
+// material
 import {
   Box,
   Table,
@@ -20,12 +21,21 @@ import {
   FormControlLabel,
   Switch,
 } from "@mui/material";
+
+// icon
 import DeleteIcon from "@mui/icons-material/Delete";
 import FilterListIcon from "@mui/icons-material/FilterList";
-import { visuallyHidden } from "@mui/utils";
-import styles from "./InfoTable.module.css"; 
+
+// component
 import EditButton from "./buttons/editButton";
 import DeleteButton from "./buttons/deleteButton";
+
+// style
+import styles from "./InfoTable.module.css"; 
+
+// moar
+import { visuallyHidden } from "@mui/utils";
+import PropTypes from "prop-types";
 
 // ======== Funciones auxiliares para ordenamiento ========
 function descendingComparator(a, b, orderBy) {

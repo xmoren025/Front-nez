@@ -1,8 +1,12 @@
 "use client";
 
 import React from "react";
-import AddShoppingCart from "@mui/icons-material/AddShoppingCart";
+
+// material
 import { Box, IconButton, Tooltip} from "@mui/material";
+
+// icon
+import AddShoppingCart from "@mui/icons-material/AddShoppingCart";
 
 function AddButton({onClick}) {
   return (

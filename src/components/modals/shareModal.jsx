@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-// materials
+// material
 import {
   Box,
   Typography,
@@ -15,13 +15,15 @@ import {
   OutlinedInput
 } from "@mui/material";
 
-// icons
+// icon
 import Share from "@mui/icons-material/Share";
 
-// components
+// component
 import CancelButton from "../buttons/cancelButton";
 import CloseButton from "../buttons/closeButton";
 import ActionButton from "../buttons/actionButton";
+
+// style
 import styles from "./Modals.module.css";
 
 function ShareModal() {

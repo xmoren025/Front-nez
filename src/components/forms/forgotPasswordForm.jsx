@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
 import { useState, useEffect } from "react";
 
-// materials
+// material
 import {
   Typography,
   Link,
@@ -14,10 +13,10 @@ import {
   InputAdornment,
 } from "@mui/material";
 
-// icons
+// icon
 import { KeyboardArrowLeft, Email} from "@mui/icons-material";
 
-//styles
+//style
 import styles from "./Forms.module.css";
 
 function ForgotPasswordForm() {

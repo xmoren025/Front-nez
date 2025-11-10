@@ -1,6 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
+// material
 import { Box, ImageList, ImageListItem } from "@mui/material";
+
+// style
 import styles from "./Gallery.module.css";
 
 function Gallery() {

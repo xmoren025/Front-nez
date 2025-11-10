@@ -9,7 +9,7 @@ import { Paper, Typography } from "@mui/material";
 import { Extension } from "@mui/icons-material";
 
 //style
-//import styles from "../JoinPieces.module.css";
+
 
 const DragNDropElement = ({ piece }) => (
   <Paper

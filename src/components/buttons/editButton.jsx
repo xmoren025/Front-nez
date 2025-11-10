@@ -1,8 +1,12 @@
 "use client";
 
 import React from "react";
-import Edit from "@mui/icons-material/Edit";
+
+// material
 import { Box, IconButton, Tooltip } from "@mui/material";
+
+// icon
+import Edit from "@mui/icons-material/Edit";
 
 function EditButton() {
   return (

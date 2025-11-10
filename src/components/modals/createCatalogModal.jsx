@@ -2,15 +2,16 @@
 
 import React, { useState } from "react";
 
-// materials
+// material
 import { Box, Typography, Divider, Modal, TextField } from "@mui/material";
 
-// components
+// component
 import CancelButton from "../buttons/cancelButton";
 import ActionButton from "../buttons/actionButton";
 import CloseButton from "../buttons/closeButton";
 import CreateButton from "../buttons/createButton";
 
+// style
 import styles from "./Modals.module.css";
 
 function CreateCatalogModal() {

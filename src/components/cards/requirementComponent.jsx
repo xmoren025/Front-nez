@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+
+// material
 import {
   Card,
   CardHeader,
@@ -14,18 +16,22 @@ import {
   Collapse,
 } from "@mui/material";
 
+// icon
 import {
   Info as InfoIcon,
   GppGood as GppGoodIcon, // Security
   Bolt as BoltIcon, // Efficiency
   CloudDone as CloudDoneIcon, // Reliability
+  ExpandLess,
+  ExpandMore
 } from "@mui/icons-material";
 
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
-
+// component
 import AddButton from "../buttons/addButton";
+
+// style
 import styles from "./CardsComponent.module.css";
+
 
 // Mapeo de íconos
 const typeIcons = {

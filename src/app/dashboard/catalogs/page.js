@@ -1,13 +1,13 @@
 "use client";
 
-import React from "react";
-import InfoTable from "@/components/infoTable";
+// material
 import {Box, Typography} from "@mui/material";
 
+// component
+import InfoTable from "@/components/infoTable";
 import NavBar from "@/components/navBar";
-import { Search } from "@mui/icons-material";
-import SearchBar from "@/components/searchbar";
 
+// style
 import "@/styles/globals.css";
 
 const columns = [

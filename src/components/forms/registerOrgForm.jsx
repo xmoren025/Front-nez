@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+
+// material
 import {
   Box,
   Divider,
@@ -9,10 +11,16 @@ import {
   Typography,
   InputAdornment,
 } from "@mui/material";
+
+// icon
 import { Business, Abc } from "@mui/icons-material";
+
+// style
+import styles from './Forms.module.css';
+
+// moar
 import { useRouter } from "next/navigation";
 
-import styles from './Forms.module.css';
 
 
 export default function RegisterOrgForm() {

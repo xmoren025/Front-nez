@@ -1,10 +1,16 @@
 "use client";
 
 import React from "react";
+
+// material
+import {Box, InputBase} from "@mui/material"
+
+// icon
+import SearchIcon from "@mui/icons-material/Search";
+
+// style
 import { styled, alpha } from "@mui/material/styles";
 
-import {Box, InputBase} from "@mui/material"
-import SearchIcon from "@mui/icons-material/Search";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",

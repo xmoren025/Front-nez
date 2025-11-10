@@ -1,18 +1,18 @@
 // components/LoginForm.jsx
 "use client";
-import React from "react";
 import { useState, useEffect } from "react";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Divider from "@mui/material/Divider";
-import Image from "next/image";
-import Box from "@mui/material/Box";
-import InputAdornment from "@mui/material/InputAdornment";
+
+// material
+import {Box, Typography, Button, TextField, Divider, InputAdornment} from "@mui/material"
+
+// icon
 import { Email, Lock, Check } from "@mui/icons-material";
 
-//import styles from './LoginForm.module.css'
+// style
 import styles from "./Forms.module.css";
+
+// moar
+import Image from "next/image";
 
 function LoginForm() {
   const [userData, setUserData] = useState({

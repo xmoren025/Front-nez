@@ -2,17 +2,11 @@
 "use client";
 
 import React from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
 
-// Componentes reutilizables
-import BackButton from "./buttons/backButton";
-import NextButton from "./buttons/nextButton";
-import CustomTabsBoard from "./customTabsBoard";
+// material
+import { Box, Typography, useMediaQuery } from "@mui/material";
 
-// Iconos
+// Icon
 import {
   Extension,
   Checklist,
@@ -20,14 +14,30 @@ import {
   AppRegistration,
 } from "@mui/icons-material";
 
+// Component
+import BackButton from "./buttons/backButton";
+import NextButton from "./buttons/nextButton";
+import CustomTabsBoard from "./customTabsBoard";
+import PiecesGrid from "./createPuzzleTabsContent/piecesGrid";
+import RequirementsGrid from "./createPuzzleTabsContent/requirementsGrid";
+import CatalogsGrid from "./createPuzzleTabsContent/catalogsGrid";
+
+// style
+import { useTheme } from "@mui/material/styles";
 import styles from "./Stepper.module.css";
+
 
 // Definir tabs para cada paso
 const steps = [
   {
     label: "Choose your pieces",
     icon: <Extension />,
-    tabs: [{ label: "My pieces", content: "Contenido del Tab 1 de Pieces" }],
+    tabs: [
+      {
+        label: "My pieces",
+        content: <PiecesGrid />,
+      },
+    ],
   },
   {
     label: "Choose your requirements",
@@ -35,7 +45,7 @@ const steps = [
     tabs: [
       {
         label: "Requirements Tab 1",
-        content: "Contenido del Tab 1 de Requirements",
+        content: <RequirementsGrid/>,
       },
     ],
   },
@@ -43,9 +53,8 @@ const steps = [
     label: "Choose your data",
     icon: <Storage />,
     tabs: [
-      { label: "Data Tab 1", content: "Contenido del Tab 1 de Data" },
-      { label: "Data Tab 2", content: "Contenido del Tab 2 de Data" },
-      { label: "Data Tab 3", content: "Contenido del Tab 3 de Data" },
+      { label: "Data Tab 1", content: <CatalogsGrid/>},
+      { label: "Data Tab 2", content: <CatalogsGrid/> },
     ],
   },
   {

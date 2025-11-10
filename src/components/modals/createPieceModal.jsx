@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+
+// material
 import {
   Box,
   Typography,
@@ -10,12 +12,13 @@ import {
   TextField,
 } from "@mui/material";
 
-// components
+// component
 import CancelButton from "../buttons/cancelButton";
 import ActionButton from "../buttons/actionButton";
 import CloseButton from "../buttons/closeButton";
 import CreateButton from "../buttons/createButton";
 
+// style
 import styles from "./Modals.module.css";
 
 function CreatePieceModal() {

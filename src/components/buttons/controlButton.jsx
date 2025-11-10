@@ -1,10 +1,9 @@
 "use client";
 
 import React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import { CircularProgress } from "@mui/material";
+
+// material
+import {Box, Button, Typography, CircularProgress} from "@mui/material"
 
 function ControlButton({
   text,
