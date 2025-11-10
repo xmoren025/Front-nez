@@ -22,8 +22,8 @@ export default function HomePage() {
   return (
     <Box>
       <NavBar />
-      <Box className="contentSpace">
-        <Typography variant="h4" className="title">
+      <Box className="contentSpaceHome">
+        <Typography variant="h4" >
           Welcome to Nez system !
         </Typography>
         <Typography variant="h6" className="">

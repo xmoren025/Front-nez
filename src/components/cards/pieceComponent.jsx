@@ -18,7 +18,9 @@ import {
 } from "@mui/material";
 
 // icon
-import {InfoIcon, ExpandLess, ExpandMore} from "@mui/icons-material"
+import InfoIcon from "@mui/icons-material/Info";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 
 // Component
 import AddButton from "../buttons/addButton";
@@ -30,7 +32,7 @@ import styles from "./CardsComponent.module.css";
 
 
 function PieceComponent() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const handleClick = () => setOpen((prev) => !prev);
 
@@ -38,7 +40,7 @@ function PieceComponent() {
     <Card className={styles.card}>
       <CardHeader
         title={
-          <Typography variant="h6" className={styles.cardTitle}>
+          <Typography variant="body1" className={styles.cardTitle}>
             Piece name
           </Typography>
         }

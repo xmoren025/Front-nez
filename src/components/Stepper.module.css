@@ -1,8 +1,7 @@
 /* components/Stepper.module.css */
 .stepperContainer {
   width: 100%;
-  padding: 1rem 0rem;
-  margin-left: -20px;
+  padding: 1rem ;
 }
 
 /* Stepper horizontal simple */
@@ -12,7 +11,6 @@
   align-items: center;
   position: relative;
   margin-bottom: 2rem;
-  margin-top: -55px;
 }
 
 /* Línea de conexión */
@@ -76,7 +74,6 @@
 /* Contenido - Ajustado para el board */
 .contentContainer {
   margin-top: 3rem;
-  padding: 0;
   background-color: transparent;
   border-radius: 8px;
 }
@@ -84,7 +81,6 @@
 .contentTitle {
   color: #1e293b;
   font-weight: 600;
-  text-align: left;
 }
 
 /* Botones */

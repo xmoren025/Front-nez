@@ -9,6 +9,7 @@ import NavBar from "@/components/navBar";
 
 // style
 import "@/styles/globals.css";
+import AddButton from "@/components/buttons/addButton";
 
 const columns = [
   { id: "cookstoveNo", label: "ID" },
@@ -18,7 +19,7 @@ const columns = [
 ];
 
 const data = [
-  { id: 1, cookstoveNo: "0012", buyerName: "John Doe", date: "06/11/2025" },
+  { id: 1, cookstoveNo: "0012", buyerName: "John Doe", date: "06/11/2025"},
   { id: 2, cookstoveNo: "0013", buyerName: "Olive Yew", date: "06/11/2025" },
   { id: 3, cookstoveNo: "0014", buyerName: "Peg Legie", date: "06/11/2025" },
 ];

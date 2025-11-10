@@ -248,11 +248,6 @@ export default function InfoTable({ title = "Data Table", columns, data }) {
                             data-label={col.label}
                             className={styles.actions}
                           >
-                            <button
-                              className={`${styles.actionButton} ${styles.send}`}
-                            >
-                              Publish
-                            </button>
                             <EditButton/>
                             <DeleteButton/>
                           </TableCell>

@@ -17,7 +17,7 @@ export default function ChoosePieces() {
     <Box>
       <NavBar />
       <Box className="contentSpace">
-        <Typography className= "title" variant="h4" gutterBottom paddingTop={5}>
+        <Typography className= "title" variant="h4" >
           Create a Puzzle
         </Typography>
         <StepperElement/>

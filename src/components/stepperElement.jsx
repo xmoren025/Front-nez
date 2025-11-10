@@ -21,6 +21,7 @@ import CustomTabsBoard from "./customTabsBoard";
 import PiecesGrid from "./createPuzzleTabsContent/piecesGrid";
 import RequirementsGrid from "./createPuzzleTabsContent/requirementsGrid";
 import CatalogsGrid from "./createPuzzleTabsContent/catalogsGrid";
+import JoinsGrid from "./createPuzzleTabsContent/joinGrid";
 
 // style
 import { useTheme } from "@mui/material/styles";
@@ -53,14 +54,14 @@ const steps = [
     label: "Choose your data",
     icon: <Storage />,
     tabs: [
-      { label: "Data Tab 1", content: <CatalogsGrid/>},
-      { label: "Data Tab 2", content: <CatalogsGrid/> },
+      { label: "My catalogs", content: <CatalogsGrid/>},
+      { label: "Shared catalogs ", content: <CatalogsGrid/> },
     ],
   },
   {
     label: "Join your app",
     icon: <AppRegistration />,
-    tabs: [{ label: "Join Tab 1", content: "Contenido del Tab 1 de Join" }],
+    tabs: [{ label: "Join puzzle", content: <JoinsGrid/>}],
   },
 ];
 

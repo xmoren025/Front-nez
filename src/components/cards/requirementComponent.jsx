@@ -42,7 +42,7 @@ const typeIcons = {
 };
 
 function RequirementComponent({ name, type, description }) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const handleClick = () => setOpen((prev) => !prev);
 
   const icon = typeIcons[type] || typeIcons.Default;
@@ -62,7 +62,7 @@ function RequirementComponent({ name, type, description }) {
       <CardContent>
         <List disablePadding>
           <ListItemButton onClick={handleClick}>
-            <ListItemIcon><InfoIcon/></ListItemIcon>
+            <ListItemIcon><InfoIcon color="primary"/></ListItemIcon>
             <ListItemText primary="More information" />
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
