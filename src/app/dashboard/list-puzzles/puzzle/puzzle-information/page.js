@@ -18,10 +18,10 @@ import ActionButton from "@/components/buttons/actionButton";
 import "@/styles/globals.css";
 
 const tabs = [
-  { label: "1", content: "Contenido del Tab 1" },
-  { label: "2", content: "Contenido del Tab 2" },
-  { label: "3", content: "Contenido del Tab 3" },
-  { label: "4", content: "Contenido del Tab 4" },
+  { label: "Pieces", content: "Contenido del Tab pieces" },
+  { label: "Requirements", content: "Contenido del Tab requirements" },
+  { label: "Data", content: "Contenido del Tab data" },
+  { label: "Configuration file", content: "Contenido del Tab configuration file" },
 ];
 
 export default function PuzzleInformation() {
