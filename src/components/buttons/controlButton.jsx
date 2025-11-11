@@ -31,6 +31,7 @@ function ControlButton({
           justifyContent: "center",
           textTransform: "none",
           borderRadius: 2,
+          minWidth: 190,
           gap: 1,
           p: 3,
         }}

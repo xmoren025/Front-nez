@@ -1,16 +1,21 @@
+.infoTable{
+  
+}
+
 .tableContainer {
   width: 100%;
-  overflow-x: auto;
   background: white;
   border-radius: 8px;
   padding: 1rem 0rem;
-  margin-left: 280px;
+  
 }
+
 
 /* ===== Estilos generales ===== */
 .table {
   width: 100%;
   border-collapse: collapse;
+  
 }
 
 .table th,
@@ -30,7 +35,7 @@
   background-color: #f5f7fa;
 }
 
-/* ===== Acciones (botones de editar / eliminar / ver / enviar) ===== */
+/* ===== Acciones ===== */
 .actions {
   display: flex;
   gap: 8px;
@@ -44,26 +49,6 @@
   padding: 6px 8px;
   border-radius: 6px;
   transition: all 0.2s ease;
-}
-
-.actionButton.view {
-  color: #16a34a;
-  background: rgba(22, 163, 74, 0.1);
-}
-
-.actionButton.send {
-  color: #2563eb;
-  background: rgba(37, 99, 235, 0.1);
-}
-
-.actionButton.edit {
-  color: #f59e0b;
-  background: rgba(245, 158, 11, 0.1);
-}
-
-.actionButton.delete {
-  color: #dc2626;
-  background: rgba(220, 38, 38, 0.1);
 }
 
 .actionButton:hover {

@@ -27,12 +27,13 @@ import JoinsGrid from "./createPuzzleTabsContent/joinGrid";
 import { useTheme } from "@mui/material/styles";
 import styles from "./Stepper.module.css";
 
-
 // Definir tabs para cada paso
 const steps = [
   {
     label: "Choose your pieces",
     icon: <Extension />,
+    instruction:
+      "Select the pieces you want to include in your puzzle. You can pick them from your collection.",
     tabs: [
       {
         label: "My pieces",
@@ -43,32 +44,36 @@ const steps = [
   {
     label: "Choose your requirements",
     icon: <Checklist />,
+    instruction:
+      "Define the requirements your puzzle must meet before proceeding to the next step.",
     tabs: [
       {
         label: "Requirements Tab 1",
-        content: <RequirementsGrid/>,
+        content: <RequirementsGrid />,
       },
     ],
   },
   {
     label: "Choose your data",
     icon: <Storage />,
+    instruction:
+      "Pick data sources or catalogs to feed your app puzzle with necessary information.",
     tabs: [
-      { label: "My catalogs", content: <CatalogsGrid/>},
-      { label: "Shared catalogs ", content: <CatalogsGrid/> },
+      { label: "My catalogs", content: <CatalogsGrid /> },
+      { label: "Shared catalogs", content: <CatalogsGrid /> },
     ],
   },
   {
     label: "Join your app",
     icon: <AppRegistration />,
-    tabs: [{ label: "Join puzzle", content: <JoinsGrid/>}],
+    instruction:
+      "Combine all the selected pieces to complete and join your application puzzle.",
+    tabs: [{ label: "Join puzzle", content: <JoinsGrid /> }],
   },
 ];
 
 function StepperElement() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
   const [activeStep, setActiveStep] = React.useState(0);
 
   const isFirstStep = activeStep === 0;
@@ -126,25 +131,26 @@ function StepperElement() {
           </div>
         ))}
       </Box>
-
+      <Typography variant="h5" className={styles.contentTitle}>
+        Step {activeStep + 1}: {steps[activeStep].label}
+      </Typography>
+      <Typography variant="body1" className={styles.contentInstruction}>
+        {steps[activeStep].instruction}
+      </Typography>{" "}
       {/* Contenido del paso actual */}
       <Box className={styles.contentContainer}>
-        <Typography variant="h5" className={styles.contentTitle}>
-          Step {activeStep + 1}: {steps[activeStep].label}
-        </Typography>
-
         {/* Integrar CustomTabsBoard con los tabs del paso actual */}
         <CustomTabsBoard items={steps[activeStep].tabs} />
-        {/* Botones de navegación */}
-        <Box className={styles.buttonsContainer}>
-          <BackButton onClick={handleBack} disabled={isFirstStep} />
+      </Box>
+      {/* Botones de navegación */}
+      <Box className={styles.buttonsContainer}>
+        <BackButton onClick={handleBack} disabled={isFirstStep} />
 
-          <NextButton
-            onClick={handleNext}
-            disabled={isLastStep}
-            isLastStep={isLastStep}
-          />
-        </Box>
+        <NextButton
+          onClick={handleNext}
+          disabled={isLastStep}
+          isLastStep={isLastStep}
+        />
       </Box>
     </Box>
   );

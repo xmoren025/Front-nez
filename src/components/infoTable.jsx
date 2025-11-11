@@ -18,8 +18,6 @@ import {
   Checkbox,
   IconButton,
   Tooltip,
-  FormControlLabel,
-  Switch,
 } from "@mui/material";
 
 // icon
@@ -31,7 +29,7 @@ import EditButton from "./buttons/editButton";
 import DeleteButton from "./buttons/deleteButton";
 
 // style
-import styles from "./InfoTable.module.css"; 
+import styles from "./InfoTable.module.css";
 
 // moar
 import { visuallyHidden } from "@mui/utils";
@@ -108,8 +106,7 @@ function EnhancedTableToolbar({ title, numSelected }) {
       sx={[
         { pl: { sm: 2 }, pr: { xs: 1, sm: 1 } },
         numSelected > 0 && {
-          bgcolor: (theme) =>
-            theme.palette.action.selected,
+          bgcolor: (theme) => theme.palette.action.selected,
         },
       ]}
     >
@@ -141,12 +138,16 @@ function EnhancedTableToolbar({ title, numSelected }) {
 }
 
 // ======== Componente principal ========
-export default function InfoTable({ title = "Data Table", columns, data }) {
+export default function InfoTable({
+  title = "Data Table",
+  columns,
+  data,
+  renderActions, 
+}) {
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState(columns[0]?.id || "");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const handleRequestSort = (event, property) => {
@@ -186,7 +187,6 @@ export default function InfoTable({ title = "Data Table", columns, data }) {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-  const handleChangeDense = (event) => setDense(event.target.checked);
 
   const visibleRows = React.useMemo(
     () =>
@@ -197,16 +197,12 @@ export default function InfoTable({ title = "Data Table", columns, data }) {
   );
 
   return (
-    <Box sx={{ width: "100%" }}>
-      <Paper sx={{ width: "100%", mb: 2 }}>
+    <Box className={styles.infoTable}>
+      <Paper>
         <EnhancedTableToolbar numSelected={selected.length} title={title} />
 
         <TableContainer className={styles.tableContainer}>
-          <Table
-            className={styles.table}
-            size={dense ? "small" : "medium"}
-            aria-label="dynamic table"
-          >
+          <Table className={styles.table} aria-label="dynamic table">
             <EnhancedTableHead
               columns={columns}
               numSelected={selected.length}
@@ -220,7 +216,6 @@ export default function InfoTable({ title = "Data Table", columns, data }) {
             <TableBody>
               {visibleRows.map((row, index) => {
                 const isItemSelected = selected.includes(row.id);
-                const labelId = `enhanced-table-checkbox-${index}`;
 
                 return (
                   <TableRow
@@ -240,7 +235,7 @@ export default function InfoTable({ title = "Data Table", columns, data }) {
                     {columns.map((col) => {
                       const cellValue = row[col.id];
 
-                      // si es la columna de acciones
+                      // columna de acciones
                       if (col.id === "actions") {
                         return (
                           <TableCell
@@ -248,13 +243,19 @@ export default function InfoTable({ title = "Data Table", columns, data }) {
                             data-label={col.label}
                             className={styles.actions}
                           >
-                            <EditButton/>
-                            <DeleteButton/>
+                            {renderActions
+                              ? renderActions(row) 
+                              : (
+                                <>
+                                  <EditButton />
+                                  <DeleteButton />
+                                </>
+                              )}
                           </TableCell>
                         );
                       }
 
-                      // celdas normales
+                      
                       return (
                         <TableCell
                           key={col.id}
@@ -282,11 +283,6 @@ export default function InfoTable({ title = "Data Table", columns, data }) {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
-
-      <FormControlLabel
-        control={<Switch checked={dense} onChange={handleChangeDense} />}
-        label="Compactar tabla"
-      />
     </Box>
   );
 }
@@ -296,4 +292,5 @@ InfoTable.propTypes = {
   title: PropTypes.string,
   columns: PropTypes.array.isRequired,
   data: PropTypes.array.isRequired,
+  renderActions: PropTypes.func, 
 };

@@ -1,7 +1,7 @@
 /* components/Stepper.module.css */
 .stepperContainer {
   width: 100%;
-  padding: 1rem ;
+  padding: 1rem;
 }
 
 /* Stepper horizontal simple */
@@ -73,15 +73,24 @@
 
 /* Contenido - Ajustado para el board */
 .contentContainer {
-  margin-top: 3rem;
   background-color: transparent;
   border-radius: 8px;
+  width: 100vh;
 }
 
 .contentTitle {
   color: #1e293b;
   font-weight: 600;
+  padding-top: 4rem;
 }
+
+.contentInstruction {
+  margin-top: 0.5rem;
+  color: #555;
+  font-size: 0.95rem;
+  max-width: 800px;
+}
+
 
 /* Botones */
 .buttonsContainer {
@@ -127,9 +136,8 @@
   }
 }
 
-
 /* Tablet */
-@media (min-width:640px) and (max-width: 1024px) {
+@media (min-width: 640px) and (max-width: 1024px) {
   .stepLabel {
     font-size: 0.65rem;
   }
@@ -141,20 +149,19 @@
 }
 
 /* Computadoras / Laptops */
-@media (min-width: 1024px){
+@media (min-width: 1024px) {
   .stepper {
-  display: flex;
-  width: 60%;
-  justify-content: space-between;
-  align-items: end;
-  position: relative;
-  margin-bottom: 2rem;
-  margin-top: -55px;
-  float: right;
-}
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    align-items: end;
+    position: relative;
+    margin-bottom: 2rem;
+    margin-top: -55px;
+    float: right;
+  }
 
-.contentContainer{
-  margin-left: 310px;
-}
-
+  .contentContainer {
+    margin-left: 310px;
+  }
 }

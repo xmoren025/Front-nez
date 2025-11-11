@@ -1,0 +1,35 @@
+.container {
+  padding: 16px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.tabsContainer {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.tab {
+  min-width: 40px;
+  padding: 0 12px;
+  margin: 0 4px;
+  border-radius: 6px 6px 0 0;
+  font-size: 0.75rem;
+  text-transform: none;
+  height: 30px;
+}
+
+.tabActive {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.contentBox {
+  background-color: #eaeaea;
+  padding: 16px;
+  min-height: 200px;
+  border-radius: 0 0 6px 6px;
+}

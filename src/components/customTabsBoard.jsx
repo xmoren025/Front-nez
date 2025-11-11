@@ -5,6 +5,9 @@ import React, { useState, useEffect } from "react";
 // material
 import { Tabs, Tab, Box, Typography } from "@mui/material";
 
+// style
+import styles from "./CustomTabsBoard.module.css";
+
 function CustomTabsBoard({ items = [] }) {
   const [value, setValue] = useState(0);
 
@@ -12,7 +15,6 @@ function CustomTabsBoard({ items = [] }) {
     setValue(newValue);
   };
 
-  // Evita índices fuera de rango si cambia el número de tabs
   useEffect(() => {
     if (items.length > 0 && value >= items.length) {
       setValue(0);
@@ -20,17 +22,9 @@ function CustomTabsBoard({ items = [] }) {
   }, [items, value]);
 
   return (
-    <Box
-      sx={{
-        p: 2,
-        borderRadius: 2,
-        width: "100%",
-        maxWidth: 600,
-        mx: "auto",
-      }}
-    >
+    <Box className={styles.container}>
       {/* Tabs superiores */}
-      <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+      <Box className={styles.tabsContainer}>
         <Tabs
           value={Math.min(value, items.length - 1) || 0}
           onChange={handleChange}
@@ -42,34 +36,16 @@ function CustomTabsBoard({ items = [] }) {
             <Tab
               key={index}
               label={item.label}
-              sx={{
-                minWidth: "40px",
-                px: 1.5,
-                mx: 0.5,
-                backgroundColor: "#dcdcdc",
-                borderRadius: "6px 6px 0 0",
-                fontSize: "0.75rem",
-                textTransform: "none",
-                height: "30px",
-                ...(value === index && {
-                  backgroundColor: "#f4f4f4",
-                  fontWeight: "bold",
-                }),
-              }}
+              className={`${styles.tab} ${
+                value === index ? styles.tabActive : ""
+              }`}
             />
           ))}
         </Tabs>
       </Box>
 
       {/* Contenedor de contenido */}
-      <Box
-        sx={{
-          bgcolor: "#eaeaea",
-          p: 2,
-          minHeight: "200px",
-          borderRadius: "0 0 6px 6px",
-        }}
-      >
+      <Box className={styles.contentBox}>
         <Typography component="div">
           {items?.[value]?.content ?? "No hay contenido disponible"}
         </Typography>

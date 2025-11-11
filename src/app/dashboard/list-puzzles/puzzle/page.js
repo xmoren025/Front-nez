@@ -2,6 +2,7 @@
 
 // material
 import { Box, Stack, Typography } from "@mui/material";
+import { useRouter } from "next/navigation";
 
 // icon
 import {
@@ -19,11 +20,14 @@ import CustomTabsBoard from "@/components/customTabsBoard";
 // style
 import "@/styles/globals.css";
 import PuzzleRepresentation from "@/components/puzzleRepresentation";
+import { redirect } from "next/dist/server/api-utils";
 
 export default function Puzzle() {
   const tabs = [
-    { label: "Puzzle representation", content: <PuzzleRepresentation/>},
+    { label: "Puzzle representation", content: <PuzzleRepresentation /> },
   ];
+
+  const router = useRouter();
   return (
     <Box>
       <NavBar />
@@ -31,39 +35,36 @@ export default function Puzzle() {
         <Typography className="title" variant="h4" gutterBottom paddingTop={5}>
           Puzzle name
         </Typography>
-        <Stack direction="row" spacing={5}>
+        <Stack direction="row" spacing={5} className="buttonStack">
           <ControlButton
             text="Execute"
             icon={<PlayCircle />}
-            onClick={() => alert("Guardado")}
+            onClick={() => alert("Executed")}
             color="success"
-            sx={{ minWidth: 180 }}
           />
           <ControlButton
             text="Deploy"
             icon={<RocketLaunch />}
-            onClick={() => alert("Guardado")}
+            onClick={() => alert("Employed")}
             color="success"
-            sx={{ minWidth: 180 }}
           />
           <ControlButton
             text="Stop puzzle"
             icon={<StopCircle />}
-            onClick={() => alert("Guardado")}
+            onClick={() => alert("stopped")}
             color="success"
-            sx={{ minWidth: 180 }}
           />
 
           <ControlButton
             text="See results"
             icon={<Visibility />}
-            onClick={() => alert("Guardado")}
+            onClick={() =>
+             router.push("/dashboard/list-puzzles/puzzle/results")
+            }
             color="success"
-            sx={{ minWidth: 180 }}
           />
         </Stack>
         <CustomTabsBoard items={tabs} />
-    
       </Box>
     </Box>
   );

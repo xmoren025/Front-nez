@@ -13,7 +13,7 @@ function AddButton({onClick}) {
     <Box>
       <Tooltip title="Add">
         <IconButton variant="contained" onClick={onClick}>
-          <AddShoppingCart />
+          <AddShoppingCart color="primary"/>
         </IconButton>
       </Tooltip>
     </Box>

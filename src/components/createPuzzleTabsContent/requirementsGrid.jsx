@@ -19,21 +19,24 @@ function RequirementsGrid() {
         <Grid container spacing={2}>
           {[...Array(3)].map((_, index) => (
             <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
-              <RequirementComponent />
+              <RequirementComponent 
+              type="Efficiency"/>
             </Grid>
           ))}
         </Grid>
         <Grid container spacing={2}>
           {[...Array(3)].map((_, index) => (
             <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
-              <RequirementComponent />
+              <RequirementComponent
+              type="Security"/>
             </Grid>
           ))}
         </Grid>
         <Grid container spacing={2}>
           {[...Array(3)].map((_, index) => (
             <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
-              <RequirementComponent />
+              <RequirementComponent 
+              type="Reliability"/>
             </Grid>
           ))}
         </Grid>

@@ -13,7 +13,7 @@ import styles from "./TabsContentGrids.module.css";
 function CartGrid() {
   return (
     <Box className={styles.cartContent}>
-      <Typography variant="h6" gutterBottom>
+      <Typography variant="h6" gutterBottom className={styles.cartTitle}>
         Selected elements
       </Typography>
       <Divider />

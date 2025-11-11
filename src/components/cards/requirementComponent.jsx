@@ -23,7 +23,7 @@ import {
   Bolt as BoltIcon, // Efficiency
   CloudDone as CloudDoneIcon, // Reliability
   ExpandLess,
-  ExpandMore
+  ExpandMore,
 } from "@mui/icons-material";
 
 // component
@@ -32,13 +32,12 @@ import AddButton from "../buttons/addButton";
 // style
 import styles from "./CardsComponent.module.css";
 
-
 // Mapeo de íconos
 const typeIcons = {
   Efficiency: <BoltIcon className={styles.iconEfficiency} />,
   Reliability: <CloudDoneIcon className={styles.iconReliability} />,
   Security: <GppGoodIcon className={styles.iconSecurity} />,
-  Default: <InfoIcon className={styles.iconDefault}  />,
+  Default: <InfoIcon className={styles.iconDefault} />,
 };
 
 function RequirementComponent({ name, type, description }) {
@@ -54,21 +53,29 @@ function RequirementComponent({ name, type, description }) {
       }`}
     >
       <CardHeader
-        title={<Typography variant="h6">{name} Requirement Name</Typography>}
-        subheader={<Typography variant="body2">{type} {icon} </Typography>}
+        title={
+          <Typography variant="Subtitle2">{name} Requirement Name</Typography>
+        }
+        subheader={
+          <Typography variant="body2">
+            {type} {icon}{" "}
+          </Typography>
+        }
         action={<AddButton />}
       />
       <Divider />
       <CardContent>
         <List disablePadding>
           <ListItemButton onClick={handleClick}>
-            <ListItemIcon><InfoIcon color="primary"/></ListItemIcon>
+            <ListItemIcon>
+              <InfoIcon />
+            </ListItemIcon>
             <ListItemText primary="More information" />
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItemButton sx={{ pl: 6 }}>
+              <ListItemButton sx={{ pl: 5 }}>
                 <ListItemText
                   primary={description || "Requirement extra information."}
                 />
@@ -80,5 +87,12 @@ function RequirementComponent({ name, type, description }) {
     </Card>
   );
 }
+
+// EXAMPLE
+{/* <RequirementComponent
+  name="System Uptime"
+  type="Reliability"
+  description="Guarantees that the system will be available 99.9% of the time."
+/>; */}
 
 export default RequirementComponent;

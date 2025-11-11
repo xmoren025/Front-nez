@@ -1,36 +1,56 @@
-"use client"
+"use client";
 
 // material
-import {Box} from "@mui/material"
+import { Box, Typography} from "@mui/material";
 
 // icon
 
 // component
 import InfoTable from "@/components/infoTable";
 import NavBar from "@/components/navBar";
+import EditButton from "@/components/buttons/editButton";
+import DeleteButton from "@/components/buttons/deleteButton";
+import ActionButton from "@/components/buttons/actionButton";
 
 // style
 import "@/styles/globals.css";
 
-const columns = [
-    { id: "cookstoveNo", label: "Cookstove no." },
-    { id: "buyerName", label: "Buyer Name" },
-    { id: "status", label: "Status" },
-    { id: "actions", label: "Actions" },
-  ];
 
-  const data = [
-    { id: 1, cookstoveNo: "0012", buyerName: "John Doe", status: "Sent" },
-    { id: 2, cookstoveNo: "0013", buyerName: "Olive Yew", status: "Pending" },
-    { id: 3, cookstoveNo: "0014", buyerName: "Peg Legie", status: "Sent" },
-    { id: 4, cookstoveNo: "0015", buyerName: "Austin Yew", status: "Sent" },
-  ];
+export default function Results() {
+  return (
+    <Box>
+      <NavBar />
 
-export default function Results(){
-    return(
-        <Box>
-            <NavBar/>
-       <InfoTable title="Sales Baseline Form" columns={columns} data={data} />
-        </Box>
-    );
+      <Box className="contentSpace">
+        <Typography className="title" variant="h4" gutterBottom paddingTop={5}>
+          Puzzle name results
+        </Typography>
+        <InfoTable
+          title="Usuarios"
+          columns={[
+            { id: "id", label: "ID" },
+            { id: "nombre", label: "Nombre" },
+            { id: "email", label: "Correo" },
+            { id: "actions", label: "Acciones" },
+          ]}
+          data={[
+            { id: 1, nombre: "Juan", email: "juan@mail.com" },
+            { id: 2, nombre: "Ana", email: "ana@mail.com" },
+          ]}
+          renderActions={(row) => (
+            <>
+              <EditButton onClick={() => console.log("Editar", row)} />
+              <DeleteButton onClick={() => console.log("Eliminar", row)} />
+              <ActionButton
+                text="Share"
+                variant="contained"
+                onClick={""}
+                sx={{ borderRadius: 1 }}
+              />
+            </>
+          )}
+        />
+      </Box>
+    </Box>
+  );
 }
