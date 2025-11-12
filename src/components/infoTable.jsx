@@ -100,7 +100,7 @@ function EnhancedTableHead({
 }
 
 // ======== Toolbar de la tabla ========
-function EnhancedTableToolbar({ title, numSelected }) {
+function EnhancedTableToolbar({ title, numSelected, onFilterToggle, showFilters }) {
   return (
     <Toolbar
       sx={[
@@ -127,8 +127,16 @@ function EnhancedTableToolbar({ title, numSelected }) {
           </IconButton>
         </Tooltip>
       ) : (
-        <Tooltip title="Filtrar">
-          <IconButton>
+        <Tooltip title={showFilters ? "Hide Filters" : "Show Filters"}>
+          <IconButton 
+            onClick={onFilterToggle}
+            sx={{
+              backgroundColor: showFilters ? 'action.selected' : 'transparent',
+              '&:hover': {
+                backgroundColor: showFilters ? 'action.hover' : 'action.hover'
+              }
+            }}
+          >
             <FilterListIcon />
           </IconButton>
         </Tooltip>
@@ -142,7 +150,9 @@ export default function InfoTable({
   title = "Data Table",
   columns,
   data,
-  renderActions, 
+  renderActions,
+  onFilterToggle,
+  showFilters = false
 }) {
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState(columns[0]?.id || "");
@@ -199,7 +209,12 @@ export default function InfoTable({
   return (
     <Box className={styles.infoTable}>
       <Paper>
-        <EnhancedTableToolbar numSelected={selected.length} title={title} />
+        <EnhancedTableToolbar 
+          numSelected={selected.length} 
+          title={title} 
+          onFilterToggle={onFilterToggle}
+          showFilters={showFilters}
+        />
 
         <TableContainer className={styles.tableContainer}>
           <Table className={styles.table} aria-label="dynamic table">
