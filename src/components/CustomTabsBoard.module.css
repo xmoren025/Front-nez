@@ -1,6 +1,5 @@
 .container {
   padding: 16px;
-  border-radius: 8px;
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
@@ -19,17 +18,18 @@
   border-radius: 6px 6px 0 0;
   font-size: 0.75rem;
   text-transform: none;
+  background-color: #ededed;
   height: 30px;
 }
 
 .tabActive {
-  background-color: #f4f4f4;
+  background-color: #a44f4f;
   font-weight: bold;
 }
 
 .contentBox {
-  background-color: #eaeaea;
+  background-color: #ededed;
   padding: 16px;
   min-height: 200px;
-  border-radius: 0 0 6px 6px;
+  border-radius: 6px 6px 6px 6px;
 }

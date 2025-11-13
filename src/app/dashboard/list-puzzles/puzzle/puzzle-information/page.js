@@ -21,7 +21,16 @@ const tabs = [
   { label: "Pieces", content: "Contenido del Tab pieces" },
   { label: "Requirements", content: "Contenido del Tab requirements" },
   { label: "Data", content: "Contenido del Tab data" },
-  { label: "Configuration file", content: "Contenido del Tab configuration file" },
+  {
+    label: "Configuration file",
+    content: "Contenido del Tab configuration file",
+  },
+];
+const myImages = [
+  { img: "/logos/nez2-logo-192.png", title: "image 1" },
+  { img: "/logos/nez2-logo-192.png", title: "image 2" },
+  { img: "/logos/nez2-logo-192.png", title: "image 3" },
+  { img: "/logos/nez2-logo-192.png", title: "image 4" },
 ];
 
 export default function PuzzleInformation() {
@@ -33,7 +42,7 @@ export default function PuzzleInformation() {
           Puzzle name information
         </Typography>
         <CustomTabsBoard items={tabs} />
-        <Gallery />
+        <Gallery images={myImages} cols={4} rowHeight={200}/>
         <InfoTable
           title="Usuarios"
           columns={[
