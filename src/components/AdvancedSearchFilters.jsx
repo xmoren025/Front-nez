@@ -48,20 +48,29 @@ function AdvancedSearchFilters({ onSearch, onFiltersChange, showAdvanced, setSho
 
   const handleSearch = () => {
     if (onSearch) {
-      onSearch(searchTerm, filters);
+      onSearch(searchTerm);
     }
   };
 
-  const handleFilterChange = (key, value) => {
-    const newFilters = { ...filters, [key]: value };
+  const handleFilterChange = (filterName, value) => {
+    const newFilters = { ...filters, [filterName]: value };
     setFilters(newFilters);
+    
+    if (filterName === 'username') {
+      setUsernameQuery(value);
+    }
+    
+    // Auto-trigger search when filter changes
     if (onFiltersChange) {
       onFiltersChange(newFilters);
+    }
+    if (onSearch) {
+      onSearch(searchTerm, newFilters);
     }
   };
 
   const clearFilters = () => {
-    const emptyFilters = {
+    const resetFilters = {
       sort_by: 'created_at_desc',
       privacy: '',
       encryption: '',
@@ -71,11 +80,14 @@ function AdvancedSearchFilters({ onSearch, onFiltersChange, showAdvanced, setSho
       date_to: '',
       file_type: ''
     };
-    setFilters(emptyFilters);
+    setFilters(resetFilters);
     setUsernameQuery('');
-    setShowUsernameDropdown(false);
+    
     if (onFiltersChange) {
-      onFiltersChange(emptyFilters);
+      onFiltersChange(resetFilters);
+    }
+    if (onSearch) {
+      onSearch(searchTerm, resetFilters);
     }
   };
 
@@ -111,268 +123,285 @@ function AdvancedSearchFilters({ onSearch, onFiltersChange, showAdvanced, setSho
 
           {/* Advanced Filters */}
           <Collapse in={showAdvanced}>
-            <Box mt={2}>
-              <Grid container spacing={2}>
-                {/* Sort By Filter */}
-                <Grid item xs={12} sm={6} md={3}>
-                  <TextField
-                    select
-                    fullWidth
-                    label="Sort By"
-                    value={filters.sort_by || 'created_at_desc'}
-                    onChange={(e) => handleFilterChange('sort_by', e.target.value)}
-                    variant="outlined"
-                    sx={{ 
-                      backgroundColor: 'background.paper',
-                      '& .MuiOutlinedInput-root': {
-                        minHeight: '56px'
-                      }
-                    }}
-                  >
-                    <MenuItem value="created_at_desc">Newest First</MenuItem>
-                    <MenuItem value="created_at_asc">Oldest First</MenuItem>
-                    <MenuItem value="namecatalog_asc">Name (A-Z)</MenuItem>
-                    <MenuItem value="namecatalog_desc">Name (Z-A)</MenuItem>
-                    <MenuItem value="dispersemode_asc">Disperse Mode</MenuItem>
-                  </TextField>
-                </Grid>
-                
-                {/* Privacy Filter */}
-                <Grid item xs={12} sm={6} md={3}>
-                  <TextField
-                    select
-                    fullWidth
-                    label="Privacy Level"
-                    value={filters.privacy}
-                    onChange={(e) => handleFilterChange('privacy', e.target.value)}
-                    variant="outlined"
-                    sx={{ 
-                      backgroundColor: 'background.paper',
-                      '& .MuiOutlinedInput-root': {
-                        minHeight: '56px'
-                      }
-                    }}
-                  >
-                    <MenuItem value="">
-                      <em>All Privacy Levels</em>
-                    </MenuItem>
-                    <MenuItem value="public">Public Catalogs</MenuItem>
-                    <MenuItem value="private">Private Catalogs</MenuItem>
-                  </TextField>
-                </Grid>
-
-                {/* Encryption Filter */}
-                <Grid item xs={12} sm={6} md={3}>
-                  <TextField
-                    select
-                    fullWidth
-                    label="Encryption Status"
-                    value={filters.encryption}
-                    onChange={(e) => handleFilterChange('encryption', e.target.value)}
-                    variant="outlined"
-                    sx={{ 
-                      backgroundColor: 'background.paper',
-                      '& .MuiOutlinedInput-root': {
-                        minHeight: '56px'
-                      }
-                    }}
-                  >
-                    <MenuItem value="">
-                      <em>All Encryption Types</em>
-                    </MenuItem>
-                    <MenuItem value="encrypted">Encrypted</MenuItem>
-                    <MenuItem value="unencrypted">Unencrypted</MenuItem>
-                  </TextField>
-                </Grid>
-
-                {/* Processing Status Filter */}
-                <Grid item xs={12} sm={6} md={3}>
-                  <TextField
-                    select
-                    fullWidth
-                    label="Processing Status"
-                    value={filters.processed}
-                    onChange={(e) => handleFilterChange('processed', e.target.value)}
-                    variant="outlined"
-                    sx={{ 
-                      backgroundColor: 'background.paper',
-                      '& .MuiOutlinedInput-root': {
-                        minHeight: '56px'
-                      }
-                    }}
-                  >
-                    <MenuItem value="">
-                      <em>All Processing States</em>
-                    </MenuItem>
-                    <MenuItem value="processed">Processed</MenuItem>
-                    <MenuItem value="unprocessed">Unprocessed</MenuItem>
-                  </TextField>
-                </Grid>
-
-                {/* Username Filter with Autocomplete */}
-                <Grid item xs={12} sm={6} md={3}>
-                  <Box position="relative">
+            <Box mt={3}>
+              <Typography variant="h6" gutterBottom sx={{ color: 'text.secondary', mb: 2 }}>
+                Advanced Search Options
+              </Typography>
+              
+              {/* Primary Filters Row - Most commonly used */}
+              <Box mb={3}>
+                <Typography variant="subtitle2" sx={{ mb: 1.5, color: 'primary.main', fontWeight: 600 }}>
+                  Primary Filters
+                </Typography>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} sm={6} md={4}>
                     <TextField
+                      select
                       fullWidth
-                      label="Filter by Username"
-                      placeholder="Type to search usernames..."
-                      value={usernameQuery}
+                      label="Sort By"
+                      value={filters.sort_by || 'created_at_desc'}
+                      onChange={(e) => handleFilterChange('sort_by', e.target.value)}
                       variant="outlined"
+                      size="medium"
                       sx={{ 
                         backgroundColor: 'background.paper',
                         '& .MuiOutlinedInput-root': {
-                          minHeight: '56px' // Match Select height
+                          borderRadius: 2
                         }
                       }}
-                      onChange={(e) => {
-                        setUsernameQuery(e.target.value);
-                        setShowUsernameDropdown(e.target.value.length > 0);
+                    >
+                      <MenuItem value="created_at_desc">Newest First</MenuItem>
+                      <MenuItem value="created_at_asc">Oldest First</MenuItem>
+                      <MenuItem value="namecatalog_asc">Name (A-Z)</MenuItem>
+                      <MenuItem value="namecatalog_desc">Name (Z-A)</MenuItem>
+                      <MenuItem value="dispersemode_asc">Disperse Mode</MenuItem>
+                    </TextField>
+                  </Grid>
+                  
+                  <Grid item xs={12} sm={6} md={4}>
+                    <TextField
+                      select
+                      fullWidth
+                      label="Privacy Level"
+                      value={filters.privacy}
+                      onChange={(e) => handleFilterChange('privacy', e.target.value)}
+                      variant="outlined"
+                      size="medium"
+                      SelectProps={{
+                        native: true,
                       }}
-                      onFocus={() => {
-                        if (usernameQuery.length > 0) {
-                          setShowUsernameDropdown(true);
+                      sx={{ 
+                        backgroundColor: 'background.paper',
+                        '& .MuiOutlinedInput-root': {
+                          borderRadius: 2
                         }
                       }}
-                      onBlur={() => {
-                        setTimeout(() => setShowUsernameDropdown(false), 200);
+                    >
+                      <option value="public">Public Catalogs</option>
+                      <option value="private">Private Catalogs</option>
+                    </TextField>
+                  </Grid>
+
+                  <Grid item xs={12} sm={6} md={4}>
+                    <Box position="relative">
+                      <TextField
+                        fullWidth
+                        label="Filter by Username"
+                        placeholder="Type to search usernames..."
+                        value={usernameQuery}
+                        variant="outlined"
+                        size="medium"
+                        sx={{ 
+                          backgroundColor: 'background.paper',
+                          '& .MuiOutlinedInput-root': {
+                            borderRadius: 2
+                          }
+                        }}
+                        onChange={(e) => {
+                          setUsernameQuery(e.target.value);
+                          setShowUsernameDropdown(e.target.value.length > 0);
+                        }}
+                        onFocus={() => {
+                          if (usernameQuery.length > 0) {
+                            setShowUsernameDropdown(true);
+                          }
+                        }}
+                        onBlur={() => {
+                          setTimeout(() => setShowUsernameDropdown(false), 200);
+                        }}
+                      />
+                      {showUsernameDropdown && (
+                        <Box
+                          sx={{
+                            position: 'absolute',
+                            top: '100%',
+                            left: 0,
+                            right: 0,
+                            backgroundColor: 'white',
+                            border: 1,
+                            borderColor: 'divider',
+                            borderRadius: 2,
+                            boxShadow: 2,
+                            zIndex: 1000,
+                            maxHeight: 200,
+                            overflowY: 'auto'
+                          }}
+                        >
+                          {availableUsers
+                            .filter(user => user.toLowerCase().includes(usernameQuery.toLowerCase()))
+                            .slice(0, 10)
+                            .map((user, index) => (
+                              <Box
+                                key={index}
+                                sx={{
+                                  p: 1.5,
+                                  cursor: 'pointer',
+                                  '&:hover': {
+                                    backgroundColor: 'action.hover'
+                                  },
+                                  borderBottom: index < 9 ? 1 : 0,
+                                  borderColor: 'divider'
+                                }}
+                                onClick={() => {
+                                  setUsernameQuery(user);
+                                  handleFilterChange('username', user);
+                                  setShowUsernameDropdown(false);
+                                }}
+                              >
+                                {user}
+                              </Box>
+                            ))
+                          }
+                        </Box>
+                      )}
+                    </Box>
+                  </Grid>
+                </Grid>
+              </Box>
+
+              {/* Secondary Filters Row - Technical options */}
+              <Box mb={3}>
+                <Typography variant="subtitle2" sx={{ mb: 1.5, color: 'primary.main', fontWeight: 600 }}>
+                  Technical Filters
+                </Typography>
+                <Grid container spacing={2}>
+                                    <Grid item xs={12} sm={6} md={3}>
+                    <TextField
+                      select
+                      fullWidth
+                      label="Encryption Status"
+                      value={filters.encryption}
+                      onChange={(e) => handleFilterChange('encryption', e.target.value)}
+                      variant="outlined"
+                      size="medium"
+                      SelectProps={{
+                        native: true,
+                      }}
+                      sx={{ 
+                        backgroundColor: 'background.paper',
+                        '& .MuiOutlinedInput-root': {
+                          borderRadius: 2
+                        }
+                      }}
+                    >
+                      <option value="encrypted">Encrypted</option>
+                      <option value="unencrypted">Unencrypted</option>
+                    </TextField>
+                  </Grid>
+
+                  <Grid item xs={12} sm={6} md={3}>
+                    <TextField
+                      select
+                      fullWidth
+                      label="Processing Status"
+                      value={filters.processed}
+                      onChange={(e) => handleFilterChange('processed', e.target.value)}
+                      variant="outlined"
+                      size="medium"
+                      SelectProps={{
+                        native: true,
+                      }}
+                      sx={{ 
+                        backgroundColor: 'background.paper',
+                        '& .MuiOutlinedInput-root': {
+                          borderRadius: 2
+                        }
+                      }}
+                    >
+                      <option value="processed">Processed</option>
+                      <option value="unprocessed">Unprocessed</option>
+                    </TextField>
+                  </Grid>
+
+                  <Grid item xs={12} sm={6} md={3}>
+                    <TextField
+                      fullWidth
+                      label="File Type"
+                      placeholder="e.g., pdf, csv, json"
+                      value={filters.file_type}
+                      onChange={(e) => handleFilterChange('file_type', e.target.value)}
+                      variant="outlined"
+                      size="medium"
+                      sx={{ 
+                        backgroundColor: 'background.paper',
+                        '& .MuiOutlinedInput-root': {
+                          borderRadius: 2
+                        }
                       }}
                     />
-                    {showUsernameDropdown && (
-                      <Box
-                        sx={{
-                          position: 'absolute',
-                          top: '100%',
-                          left: 0,
-                          right: 0,
-                          backgroundColor: 'white',
-                          border: 1,
-                          borderColor: 'divider',
-                          borderRadius: 1,
-                          maxHeight: 200,
-                          overflowY: 'auto',
-                          zIndex: 1000,
-                          boxShadow: 3
-                        }}
-                      >
-                        {availableUsers
-                          .filter(user => user.toLowerCase().includes(usernameQuery.toLowerCase()))
-                          .map((user) => (
-                            <Box
-                              key={user}
-                              sx={{
-                                padding: 1.5,
-                                cursor: 'pointer',
-                                borderBottom: '1px solid #f0f0f0',
-                                '&:hover': { backgroundColor: 'action.hover' },
-                                '&:last-child': { borderBottom: 'none' }
-                              }}
-                              onClick={() => {
-                                setUsernameQuery(user);
-                                handleFilterChange('username', user);
-                                setShowUsernameDropdown(false);
-                              }}
-                            >
-                              {user}
-                            </Box>
-                          ))}
-                        {availableUsers.filter(user => user.toLowerCase().includes(usernameQuery.toLowerCase())).length === 0 && (
-                          <Box sx={{ padding: 1.5, color: 'text.secondary', fontStyle: 'italic' }}>
-                            No users found
-                          </Box>
-                        )}
-                      </Box>
-                    )}
-                  </Box>
+                  </Grid>
                 </Grid>
+              </Box>
 
-                {/* File Type Filter */}
-                <Grid item xs={12} sm={6} md={3}>
-                  <TextField
-                    fullWidth
-                    label="File Type"
-                    placeholder="e.g., pdf, dcm, txt"
-                    value={filters.file_type}
-                    variant="outlined"
-                    sx={{ 
-                      backgroundColor: 'background.paper',
-                      '& .MuiOutlinedInput-root': {
-                        minHeight: '56px' // Match Select height
-                      }
-                    }}
-                    onChange={(e) => handleFilterChange('file_type', e.target.value)}
-                  />
+              {/* Date Range Filter Row */}
+              <Box mb={3}>
+                <Typography variant="subtitle2" sx={{ mb: 1.5, color: 'info.main', fontWeight: 600 }}>
+                  Date Range
+                </Typography>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} sm={6} md={6}>
+                    <TextField
+                      fullWidth
+                      label="From Date"
+                      type="date"
+                      value={filters.date_from}
+                      onChange={(e) => handleFilterChange('date_from', e.target.value)}
+                      variant="outlined"
+                      size="medium"
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      sx={{ 
+                        backgroundColor: 'background.paper',
+                        '& .MuiOutlinedInput-root': {
+                          borderRadius: 2
+                        }
+                      }}
+                    />
+                  </Grid>
+                  
+                  <Grid item xs={12} sm={6} md={6}>
+                    <TextField
+                      fullWidth
+                      label="To Date"
+                      type="date"
+                      value={filters.date_to}
+                      onChange={(e) => handleFilterChange('date_to', e.target.value)}
+                      variant="outlined"
+                      size="medium"
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      sx={{ 
+                        backgroundColor: 'background.paper',
+                        '& .MuiOutlinedInput-root': {
+                          borderRadius: 2
+                        }
+                      }}
+                    />
+                  </Grid>
                 </Grid>
+              </Box>
 
-                {/* Date From */}
-                <Grid item xs={12} sm={6} md={3}>
-                  <TextField
-                    fullWidth
-                    label="Created From"
-                    type="date"
-                    value={filters.date_from}
-                    variant="outlined"
-                    sx={{ 
-                      backgroundColor: 'background.paper',
-                      '& .MuiOutlinedInput-root': {
-                        minHeight: '56px' // Match Select height
-                      }
-                    }}
-                    onChange={(e) => handleFilterChange('date_from', e.target.value)}
-                    InputLabelProps={{ shrink: true }}
-                  />
+              {/* Action Buttons Row */}
+              <Box mb={2}>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} md={12}>
+                    <Button
+                      variant="outlined"
+                      color="error"
+                      fullWidth
+                      onClick={clearFilters}
+                      sx={{ 
+                        height: '40px',
+                        borderRadius: 2,
+                        textTransform: 'none'
+                      }}
+                    >
+                      Clear Filters
+                    </Button>
+                  </Grid>
                 </Grid>
-
-                {/* Date To */}
-                <Grid item xs={12} sm={6} md={3}>
-                  <TextField
-                    fullWidth
-                    label="Created To"
-                    type="date"
-                    value={filters.date_to}
-                    variant="outlined"
-                    sx={{ 
-                      backgroundColor: 'background.paper',
-                      '& .MuiOutlinedInput-root': {
-                        minHeight: '56px' // Match Select height
-                      }
-                    }}
-                    onChange={(e) => handleFilterChange('date_to', e.target.value)}
-                    InputLabelProps={{ shrink: true }}
-                  />
-                </Grid>
-              </Grid>
-
-              {/* Filter Actions */}
-              <Box display="flex" gap={2} mt={3} justifyContent="flex-end">
-                <Button 
-                  variant="outlined" 
-                  onClick={clearFilters}
-                  sx={{ 
-                    minWidth: 120,
-                    borderColor: 'error.main',
-                    color: 'error.main',
-                    '&:hover': {
-                      borderColor: 'error.dark',
-                      backgroundColor: 'error.light',
-                      color: 'error.dark'
-                    }
-                  }}
-                >
-                  Clear All
-                </Button>
-                <Button 
-                  variant="contained" 
-                  onClick={handleSearch}
-                  sx={{ 
-                    minWidth: 120,
-                    backgroundColor: 'primary.main',
-                    '&:hover': {
-                      backgroundColor: 'primary.dark'
-                    }
-                  }}
-                >
-                  Apply Filters
-                </Button>
               </Box>
             </Box>
           </Collapse>

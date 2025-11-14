@@ -6,8 +6,8 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:20506';
 
 // Debug logging
-console.log('🔍 Environment variable NEXT_PUBLIC_API_URL:', process.env.NEXT_PUBLIC_API_URL);
-console.log('🔍 Final API_BASE_URL:', API_BASE_URL);
+console.log('Environment variable NEXT_PUBLIC_API_URL:', process.env.NEXT_PUBLIC_API_URL);
+console.log('Final API_BASE_URL:', API_BASE_URL);
 
 class CatalogAPIService {
   /**
@@ -30,13 +30,13 @@ class CatalogAPIService {
       });
 
       const url = `${API_BASE_URL}/uriegas-search_catalogs.php?${params}`;
-      console.log('🌐 Attempting to fetch from URL:', url);
-      console.log('🔧 API_BASE_URL:', API_BASE_URL);
+      console.log('Attempting to fetch from URL:', url);
+      console.log('API_BASE_URL:', API_BASE_URL);
       
       const response = await fetch(url);
 
-      console.log('📡 Response status:', response.status);
-      console.log('📡 Response ok:', response.ok);
+      console.log('Response status:', response.status);
+      console.log('Response ok:', response.ok);
 
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -56,10 +56,10 @@ class CatalogAPIService {
         fairCompliant: data.fair_compliant
       };
     } catch (error) {
-      console.error('🚨 Catalog search error:', error);
-      console.error('🚨 Error name:', error.name);
-      console.error('🚨 Error message:', error.message);
-      console.error('🚨 Error stack:', error.stack);
+      console.error('Catalog search error:', error);
+      console.error('Error name:', error.name);
+      console.error('Error message:', error.message);
+      console.error('Error stack:', error.stack);
       
       // Re-throw with more context for debugging
       const enhancedError = new Error(`Failed to fetch catalogs: ${error.message}`);
