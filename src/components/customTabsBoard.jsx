@@ -7,6 +7,7 @@ import { Tabs, Tab, Box, Typography } from "@mui/material";
 
 // style
 import styles from "./CustomTabsBoard.module.css";
+import CartGrid from "./createPuzzleTabsContent/cartGrid";
 
 function CustomTabsBoard({ items = [] }) {
   const [value, setValue] = useState(0);

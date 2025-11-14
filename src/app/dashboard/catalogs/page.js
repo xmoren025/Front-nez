@@ -42,7 +42,6 @@ export default function Catalogs() {
               <ActionButton
                 text="Share"
                 variant="contained"
-                onClick={""}
                 sx={{ borderRadius: 1 }}
               />
             </>

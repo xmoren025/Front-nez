@@ -73,7 +73,7 @@
 
 /* Contenido - Ajustado para el board */
 .contentContainer {
-  background-color: red;
+  background-color: transparent;
   align-content: center;
   border-radius: 8px;
   width: 100vh;

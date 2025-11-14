@@ -56,9 +56,9 @@ function PieceComponent() {
         <List disablePadding>
           <ListItemButton onClick={handleClick}>
             <ListItemIcon>
-              <InfoIcon color="primary" />
+              <InfoIcon color="primary" fontSize="medium" />
             </ListItemIcon>
-            <ListItemText primary="More information" />
+            <ListItemText secondary="More information" />
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
 
@@ -73,7 +73,7 @@ function PieceComponent() {
             </List>
           </Collapse>
         </List>
-      </CardContent>
+      </CardContent> 
       <CardActions className={styles.cardActions}>
         <EditButton />
         <DeleteButton />

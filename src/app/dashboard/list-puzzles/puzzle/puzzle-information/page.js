@@ -62,7 +62,6 @@ export default function PuzzleInformation() {
               <ActionButton
                 text="Share"
                 variant="contained"
-                onClick={""}
                 sx={{ borderRadius: 1 }}
               />
             </>

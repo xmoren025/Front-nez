@@ -31,7 +31,7 @@ function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [openSections, setOpenSections] = useState({
-    services: true,
+    puzzles: true,
     storage: true
   });
   const [avatarSrc, setAvatarSrc] = useState(undefined);
@@ -158,19 +158,19 @@ function NavBar() {
           <div className={styles.navSection}>
             <div 
               className={styles.navHeader}
-              onClick={() => toggleSection('services')}
+              onClick={() => toggleSection('puzzles')}
             >
               <div className={styles.navTitle}>
                 <Extension className={styles.navIcon} />
-                <span>Services</span>
+                <span>Puzzles</span>
               </div>
-              {openSections.services ? 
+              {openSections.puzzles ? 
                 <ExpandLess className={styles.navIcon} /> : 
                 <ExpandMore className={styles.navIcon} />
               }
             </div>
             
-            {openSections.services && (
+            {openSections.puzzles && (
               <div className={styles.navItems}>
                 <Link 
                   href="/dashboard/create-puzzle" 
@@ -178,7 +178,7 @@ function NavBar() {
                   onClick={closeMobileNav}
                 >
                   <AddBox className={styles.navIcon} />
-                  <span>Create a service</span>
+                  <span>Create a puzzle</span>
                 </Link>
                 
                 <Link 
@@ -187,7 +187,7 @@ function NavBar() {
                   onClick={closeMobileNav}
                 >
                   <ViewList className={styles.navIcon} />
-                  <span>List services</span>
+                  <span>List puzzles</span>
                 </Link>
               </div>
             )}

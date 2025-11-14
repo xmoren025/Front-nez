@@ -1,7 +1,14 @@
 .card {
   border-radius: 12px;
   transition: all 0.3s ease;
-  margin: 5px;
+  margin: 4px;
+  max-width: 23vh;
+  max-height: fit-content;
+}
+
+.cardActions{
+  display: flex;
+  float: right;
 }
 
 /* Estilos base */
@@ -22,7 +29,7 @@
 }
 
 .security {
-  border-top: 4px solid #2e7d32;
+  border-top: 4px solid #2e7d32; 
   background-color: #e8f5e9;
 }
 

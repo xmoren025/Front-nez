@@ -1,4 +1,3 @@
-
 "use client";
 
 // material
@@ -12,15 +11,16 @@ import StepperElement from "@/components/stepperElement";
 import "@/styles/globals.css";
 
 export default function ChoosePieces() {
-
   return (
     <Box>
       <NavBar />
       <Box className="contentSpace">
-        <Typography className= "title" variant="h4" >
+        <Typography className="title" variant="h4">
           Create a Puzzle
         </Typography>
-        <StepperElement/>
+        <StepperElement />
+
+        
       </Box>
     </Box>
   );

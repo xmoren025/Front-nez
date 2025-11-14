@@ -6,7 +6,6 @@ import { Box } from "@mui/material";
 // icon
 
 // component
-import CartGrid from "./cartGrid";
 import Workspace from "../dragDrop/workspace";
 
 // style
@@ -17,9 +16,7 @@ function JoinGrid(){
         <Box>
             <Box className={styles.joinContent}>
             </Box>
-            <Box className={styles.cart}>
-                <CartGrid/>
-            </Box>
+            
         </Box>
     );
 }

@@ -27,6 +27,12 @@ export default function Puzzle() {
     { label: "Puzzle representation", content: <PuzzleRepresentation /> },
   ];
 
+  const primary = {
+    main: "#1976d2",
+    light: "#42a5f5",
+    dark: "#1565c0",
+    contrastText: "#fff",
+  };
   const router = useRouter();
   return (
     <Box>
@@ -40,26 +46,26 @@ export default function Puzzle() {
             text="Execute"
             icon={<PlayCircle />}
             onClick={() => alert("Executed")}
-            color="success"
+            color=""
           />
           <ControlButton
             text="Deploy"
             icon={<RocketLaunch />}
             onClick={() => alert("Employed")}
-            color="success"
+            color="info"
           />
           <ControlButton
             text="Stop puzzle"
             icon={<StopCircle />}
             onClick={() => alert("stopped")}
-            color="success"
+            color="error"
           />
 
           <ControlButton
             text="See results"
             icon={<Visibility />}
             onClick={() =>
-             router.push("/dashboard/list-puzzles/puzzle/results")
+              router.push("/dashboard/list-puzzles/puzzle/results")
             }
             color="success"
           />
