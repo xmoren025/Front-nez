@@ -22,6 +22,7 @@ import PiecesGrid from "./createPuzzleTabsContent/piecesGrid";
 import RequirementsGrid from "./createPuzzleTabsContent/requirementsGrid";
 import CatalogsGrid from "./createPuzzleTabsContent/catalogsGrid";
 import JoinsGrid from "./createPuzzleTabsContent/joinGrid";
+import CartGrid from "@/components/createPuzzleTabsContent/cartGrid";
 
 // style
 import { useTheme } from "@mui/material/styles";
@@ -42,13 +43,13 @@ const steps = [
     ],
   },
   {
-    label: "Choose your requirements",
+    label: "Choose the features",
     icon: <Checklist />,
     instruction:
-      "Define the requirements your puzzle must meet before proceeding to the next step.",
+      "Define the features your puzzle must have before proceeding to the next step.",
     tabs: [
       {
-        label: "Requirements Tab 1",
+        label: "Features",
         content: <RequirementsGrid />,
       },
     ],
@@ -141,6 +142,7 @@ function StepperElement() {
       <Box className={styles.contentContainer}>
         {/* Integrar CustomTabsBoard con los tabs del paso actual */}
         <CustomTabsBoard items={steps[activeStep].tabs} />
+        <CartGrid />
       </Box>
       {/* Botones de navegación */}
       <Box className={styles.buttonsContainer}>
@@ -151,7 +153,7 @@ function StepperElement() {
           disabled={isLastStep}
           isLastStep={isLastStep}
         />
-      </Box>
+      </Box> 
     </Box>
   );
 }

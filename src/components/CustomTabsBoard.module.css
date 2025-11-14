@@ -1,15 +1,12 @@
 .container {
-  padding: 16px;
-  border-radius: 8px;
+  padding: 10px;
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
+
 }
 
 .tabsContainer {
   display: flex;
   justify-content: flex-end;
-
 }
 
 .tab {
@@ -19,17 +16,15 @@
   border-radius: 6px 6px 0 0;
   font-size: 0.75rem;
   text-transform: none;
+  background-color:  rgb(226, 235, 238);
   height: 30px;
 }
 
-.tabActive {
-  background-color: #f4f4f4;
-  font-weight: bold;
-}
 
 .contentBox {
-  background-color: #eaeaea;
-  padding: 16px;
-  min-height: 200px;
-  border-radius: 0 0 6px 6px;
+  padding: 14px;
+  max-height: 95vh;
+  width: 80vh;
+  border-radius: 6px 6px 6px 6px;
+  background-color: rgb(235, 242, 243);
 }

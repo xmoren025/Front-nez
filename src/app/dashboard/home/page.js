@@ -23,14 +23,14 @@ export default function HomePage() {
     <Box>
       <NavBar />
       <Box className="contentSpaceHome">
-        <Typography variant="h4" >
+        <Typography variant="h4" className="titleHome">
           Welcome to Nez system !
         </Typography>
-        <Typography variant="h6" className="">
+        <Typography variant="h6" className="subtitle">
           subtitle & instructions
         </Typography>
 
-        <Button variant="contained" href="/../dashboard/create-puzzle">
+        <Button variant="contained" className="submitButton" href="/../dashboard/create-puzzle">
           Get started
         </Button>
 
@@ -44,8 +44,10 @@ export default function HomePage() {
             <TrendingFlat fontSize="large" />
             <AppRegistration fontSize="large" />
           </Stack>
-          <Typography variant="h6">text description</Typography>
         </Box>
+        <Typography variant="h6" className="subtitle">
+          text description
+        </Typography>
       </Box>
     </Box>
   );

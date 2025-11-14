@@ -52,7 +52,7 @@ function SaveServiceModal() {
 
   const handleSubmit = () => {
     if (!validate()) return;
-    console.log("Service saved:", formData);
+    console.log("Puzzle saved:", formData);
     handleClose();
   };
 
@@ -69,7 +69,7 @@ function SaveServiceModal() {
         <Box className={styles.modalContainer}>
           <Box className={styles.headerModal}>
             <Typography variant="h5" className={styles.modalTitle}>
-              Save service
+              Save puzzle
             </Typography>
             <CloseButton onClick={handleClose} className={styles.closeButton} />
           </Box>
@@ -104,7 +104,7 @@ function SaveServiceModal() {
               label="Employ"
             />
             <Typography variant="caption" display="block">
-              Toggle this to employ or disable the service.
+              Toggle this to employ or disable the puzzle.
             </Typography>
           </Box>
 

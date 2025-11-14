@@ -37,8 +37,10 @@ body {
   align-items: center;
   align-content: center;
   justify-content: center;
+
   height: 100vh;
   margin-left: 26vh;
+  gap: 5vh;
 }
 
 .contentSpace {
@@ -53,8 +55,34 @@ body {
   padding-top: 5vh;
 }
 
+.cartSection {
+  flex: 1;
+  position: sticky;
+  top: 1rem;
+  align-self: flex-end;
+}
+
+
+.submitButton {
+    padding: 12px !important;
+    border-radius: 10px !important;
+    font-weight: 400 !important;
+    font-size: 1rem !important;
+    margin: 2vh !important;
+    background: #304a6e !important;
+    transition: all 0.3s ease !important;
+}
+
+.submitButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 107, 187, 0.3) !important;
+}
+
+
 .buttonStack {
   display: flex;
+  padding: 4vh;
+  gap: 2vh;
   align-self: center;
 }
 

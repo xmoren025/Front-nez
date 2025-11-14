@@ -1,15 +1,29 @@
-.cardsContent{
-    display: flex;
+.mainContainer {
+  width: 100%;
+  padding: 1.5rem;
 }
 
-.joinContent{
-
+/* Sección de las cards (más ancha) */
+.cardsContent {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
 }
 
-.cartContent{
-    
+.cartContent {
+  background-color:  rgb(235, 242, 243);
+  border-radius: 8px;
+  padding: 1.2vh;
 }
 
-.cartTitle{
-
+/* Botón crear */
+.createBttnContainer {
+  display: flex;
+  justify-content: flex-start;
+  padding: 1.5vh;
 }

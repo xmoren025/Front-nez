@@ -10,7 +10,6 @@ import RequirementComponent from "../cards/requirementComponent";
 
 // style
 import styles from "./TabsContentGrids.module.css";
-import CartGrid from "./cartGrid";
 
 function RequirementsGrid() {
   return (
@@ -40,9 +39,6 @@ function RequirementsGrid() {
             </Grid>
           ))}
         </Grid>
-      </Box>
-      <Box className={styles.cart}>
-        <CartGrid/>
       </Box>
     </Box>
   );

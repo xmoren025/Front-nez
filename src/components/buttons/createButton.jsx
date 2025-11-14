@@ -12,7 +12,7 @@ import AddCircle from "@mui/icons-material/AddCircle";
 function CreateButton({onClick}) {
   return (
     <Box>
-      <Button variant="text" startIcon={<AddCircle />} onClick={onClick}>
+      <Button variant="text" size="large" startIcon={<AddCircle />} onClick={onClick} >
         Create
       </Button>
     </Box>
