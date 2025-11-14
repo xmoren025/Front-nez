@@ -142,9 +142,7 @@ function StepperElement() {
       <Box className={styles.contentContainer}>
         {/* Integrar CustomTabsBoard con los tabs del paso actual */}
         <CustomTabsBoard items={steps[activeStep].tabs} />
-        <Box className="cartSection">
-          <CartGrid />
-        </Box>
+        <CartGrid />
       </Box>
       {/* Botones de navegación */}
       <Box className={styles.buttonsContainer}>

@@ -1,6 +1,7 @@
 .container {
   padding: 10px;
   width: 100%;
+
 }
 
 .tabsContainer {
@@ -15,7 +16,7 @@
   border-radius: 6px 6px 0 0;
   font-size: 0.75rem;
   text-transform: none;
-  background-color:  rgb(222, 230, 231);
+  background-color:  rgb(226, 235, 238);
   height: 30px;
 }
 

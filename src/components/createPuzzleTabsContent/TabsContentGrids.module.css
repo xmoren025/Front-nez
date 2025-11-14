@@ -18,10 +18,7 @@
 .cartContent {
   background-color:  rgb(235, 242, 243);
   border-radius: 8px;
-  padding: 1vh;
-  margin-bottom: 1vh;
-  max-height: 95vh;
-  width: 320px;
+  padding: 1.2vh;
 }
 
 /* Botón crear */
