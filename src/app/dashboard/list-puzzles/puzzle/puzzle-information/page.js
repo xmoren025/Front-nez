@@ -41,8 +41,27 @@ export default function PuzzleInformation() {
         <Typography className="title" variant="h4" gutterBottom paddingTop={5}>
           Puzzle name information
         </Typography>
+
+        <Typography className="subtitle" variant="h5" gutterBottom paddingTop={5}>
+          Puzzle name information
+        </Typography>
+        <Typography className="subtitle" variant="body2">
+          Puzzle name information esplanation
+        </Typography>
         <CustomTabsBoard items={tabs} />
+        <Typography className="subtitle" variant="h5" gutterBottom paddingTop={5}>
+          Puzzle name information
+        </Typography>
+        <Typography className="subtitle" variant="body2">
+          Puzzle name information esplanation
+        </Typography>
         <Gallery images={myImages} cols={4} rowHeight={200}/>
+        <Typography className="subtitle" variant="h5" gutterBottom paddingTop={5}>
+          Puzzle name information
+        </Typography>
+        <Typography className="subtitle" variant="body2">
+          Puzzle name information esplanation
+        </Typography>
         <InfoTable
           title="Usuarios"
           columns={[

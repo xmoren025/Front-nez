@@ -13,6 +13,7 @@ function ActionButton({
   fullWidth = false,
   disabled = false,
   sx = {},
+  ... props
 }) {
   return (
     <Box>
@@ -23,6 +24,7 @@ function ActionButton({
         fullWidth={fullWidth}
         disabled={disabled}
         sx={sx}
+        {...props} 
       >
         {text}
       </Button>

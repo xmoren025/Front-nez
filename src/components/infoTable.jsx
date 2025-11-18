@@ -121,7 +121,7 @@ function EnhancedTableToolbar({ title, numSelected, onFilterToggle, showFilters 
       )}
 
       {numSelected > 0 ? (
-        <Tooltip title="Eliminar">
+        <Tooltip title="Delete">
           <IconButton>
             <DeleteIcon />
           </IconButton>
@@ -257,6 +257,7 @@ export default function InfoTable({
                             key={col.id}
                             data-label={col.label}
                             className={styles.actions}
+                            onClick={(e) => e.stopPropagation()}
                           >
                             {renderActions
                               ? renderActions(row) 

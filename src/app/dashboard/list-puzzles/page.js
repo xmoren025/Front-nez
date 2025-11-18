@@ -2,7 +2,6 @@
 
 // material
 import { Box, Typography } from "@mui/material";
-
 // icon
 
 // component
@@ -16,6 +15,9 @@ import ActionButton from "@/components/buttons/actionButton";
 // style
 import "@/styles/globals.css";
 
+// moar 
+import Link from "next/link";
+
 export default function ListPuzzles() {
   return (
     <Box>
@@ -24,7 +26,7 @@ export default function ListPuzzles() {
         <Typography className="title" variant="h4" gutterBottom paddingTop={5}>
           My puzzles
         </Typography>
-        <SearchBar/>
+        <SearchBar />
         <InfoTable
           title="Usuarios"
           columns={[
@@ -44,7 +46,8 @@ export default function ListPuzzles() {
               <ActionButton
                 text="See puzzle"
                 variant="contained"
-                href="/puzzle"
+                component={Link}
+                href="/../dashboard/list-puzzles/puzzle"
                 sx={{ borderRadius: 1 }}
               />
             </>

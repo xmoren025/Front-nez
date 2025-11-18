@@ -1,5 +1,7 @@
 .infoTable{
-  
+  width: 80%;
+  align-self: center;
+  padding: 4vh;
 }
 
 .tableContainer {
@@ -37,22 +39,9 @@
 
 /* ===== Acciones ===== */
 .actions {
-  display: flex;
-  gap: 8px;
-}
-
-.actionButton {
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-size: 14px;
-  padding: 6px 8px;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-}
-
-.actionButton:hover {
-  transform: scale(1.05);
+  display: flex !important;
+  align-items: center;        
+  gap: 2vh;               
 }
 
 /* ===== Responsividad móvil ===== */
