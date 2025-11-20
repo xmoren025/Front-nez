@@ -10,10 +10,10 @@ import RemoveShoppingCart from "@mui/icons-material/RemoveShoppingCart";
 
 function RemoveButton() {
   return (
-    <Box>
+    <Box paddingLeft={1}>
       <Tooltip title="Remove">
         <IconButton variant="contained">
-          <RemoveShoppingCart />
+          <RemoveShoppingCart fontSize="small"/>
         </IconButton>
       </Tooltip>
     </Box>

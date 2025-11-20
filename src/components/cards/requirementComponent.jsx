@@ -70,7 +70,7 @@ function RequirementComponent({ name, type, description }) {
             <ListItemIcon>
               <InfoIcon />
             </ListItemIcon>
-            <ListItemText primary="More information" />
+            <ListItemText primary="More information" variant="caption"/>
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
           <Collapse in={open} timeout="auto" unmountOnExit>

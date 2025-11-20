@@ -26,6 +26,7 @@ const tabs = [
     content: "Contenido del Tab configuration file",
   },
 ];
+
 const myImages = [
   { img: "/logos/nez2-logo-192.png", title: "image 1" },
   { img: "/logos/nez2-logo-192.png", title: "image 2" },

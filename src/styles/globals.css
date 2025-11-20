@@ -55,13 +55,6 @@ body {
   padding-top: 5vh;
 }
 
-.cartSection {
-  flex: 1;
-  position: sticky;
-  top: 1rem;
-  align-self: flex-end;
-}
-
 
 .submitButton {
     padding: 12px !important;

@@ -3,7 +3,6 @@
   padding: 1.5rem;
 }
 
-/* Sección de las cards (más ancha) */
 .cardsContent {
   flex: 4;
   display: flex;
@@ -16,14 +15,36 @@
 }
 
 .cartContent {
-  background-color:  rgb(235, 242, 243);
+  background-color: rgb(205, 219, 228);
   border-radius: 8px;
+  margin-top: 6%;
   padding: 1.2vh;
+  max-height: 89vh;
+}
+
+.cartTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.elementsContainer {
+  display: flex;
+  background-color: rgb(233, 239, 243);
+  height:max-content;
+  border-radius: 6px;
+  margin-top: 5%;
 }
 
 /* Botón crear */
 .createBttnContainer {
   display: flex;
   justify-content: flex-start;
+  padding: 1.5vh;
+}
+
+.joinBttnsContainer{
+  display: flex;
+  justify-content: flex-end;
   padding: 1.5vh;
 }

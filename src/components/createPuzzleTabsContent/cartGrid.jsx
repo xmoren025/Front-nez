@@ -17,7 +17,7 @@ function CartGrid() {
         Selected elements
       </Typography>
       <Divider />
-      <Box>
+      <Box className={styles.elementsContainer}>
         <ElementSelected/>
       </Box>
     </Box>

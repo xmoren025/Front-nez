@@ -19,5 +19,5 @@ function ClearButton() {
     </Box>
   );
 }
+
 export default ClearButton;
-s;

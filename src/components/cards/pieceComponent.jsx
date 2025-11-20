@@ -58,7 +58,7 @@ function PieceComponent() {
             <ListItemIcon>
               <InfoIcon color="primary" fontSize="medium" />
             </ListItemIcon>
-            <ListItemText secondary="More information" />
+            <ListItemText secondary="More information" variant="caption" />
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
 

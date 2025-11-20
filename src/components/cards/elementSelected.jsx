@@ -17,20 +17,20 @@ import styles from "./CardsComponent.module.css";
 function ElementSelected({ name, type }) {
   // Mapeo de íconos según tipo
   const icons = {
-    pieza: <Extension />,
-    catalogo: <FolderOpen />,
-    requerimiento: <TaskAlt />,
+    pieza: <Extension fontSize="small" />,
+    catalogo: <FolderOpen fontSize="small"/>,
+    requerimiento: <TaskAlt fontSize="small" />,
   };
 
-  const icon = icons[type?.toLowerCase()] || <FolderOpen />;
+  const icon = icons[type?.toLowerCase()] || <FolderOpen  fontSize="small" color="primary" />;
 
   return (
     <Card className={styles.cardElementCart}>
       <CardHeader
         avatar={icon}
         title={
-          <Typography variant="body2" className={styles.cardTitleElementCart}>
-            {name || "Selected element name"}
+          <Typography variant="caption" className={styles.cardTitleElementCart}>
+            {name || "example"}
           </Typography>
         }
         action={<RemoveButton/>}

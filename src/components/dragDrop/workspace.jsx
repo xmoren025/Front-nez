@@ -3,7 +3,7 @@
 import React from "react";
 
 // material
-import { Box, Typography } from "@mui/material";
+import { Box} from "@mui/material";
 
 // component
 import DragNDropElement from "./dragNDropElement";
@@ -55,6 +55,7 @@ const Workspace = ({ workspacePieces }) => {
         </Box>
       )}
     </Droppable>
+    
   );
 };
 
