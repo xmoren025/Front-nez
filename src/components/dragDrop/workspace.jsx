@@ -3,13 +3,16 @@
 import React from "react";
 
 // material
-import { Box} from "@mui/material";
+import { Box } from "@mui/material";
 
 // component
 import DragNDropElement from "./dragNDropElement";
 
-// moar
+// dnd
 import { Droppable, Draggable } from "@hello-pangea/dnd";
+
+// styles
+import styles from "./Workspace.module.css";
 
 const Workspace = ({ workspacePieces }) => {
   return (
@@ -18,20 +21,7 @@ const Workspace = ({ workspacePieces }) => {
         <Box
           ref={provided.innerRef}
           {...provided.droppableProps}
-          sx={{
-            bgcolor: "#fff",
-            border: "1px solid #ccc",
-            borderRadius: 2,
-            height: "100%",
-            minHeight: 300,
-            overflowY: "auto",
-            p: 3,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent:
-              workspacePieces.length === 0 ? "center" : "flex-start",
-          }}
+          className={styles.workspaceContainer}
         >
           {workspacePieces.map((piece, index) => (
             <Draggable
@@ -44,18 +34,18 @@ const Workspace = ({ workspacePieces }) => {
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
-                  sx={{ mb: 1, width: "100%", maxWidth: 400 }}
+                  className={styles.draggableItem}
                 >
                   <DragNDropElement piece={piece} />
                 </Box>
               )}
             </Draggable>
           ))}
+
           {provided.placeholder}
         </Box>
       )}
     </Droppable>
-    
   );
 };
 

@@ -3,21 +3,25 @@
 import React from "react";
 
 // material
-import { Box, Typography, Paper } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
-// component
+// element 
 import DragNDropElement from "./dragNDropElement";
 
 // moar
 import { Droppable, Draggable } from "@hello-pangea/dnd";
 
+// style
+import styles from "./DragNDrop.module.css";
+
 const DragNDropList = ({ pieces }) => {
   return (
-    <Box sx={{ textAlign: "left" }}>
-      <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
+    <Box className={styles.listContainer}>
+      <Typography variant="subtitle1" className={styles.title}>
         Piezas disponibles
       </Typography>
-      <Typography variant="body2" sx={{ color: "gray", mb: 2 }}>
+
+      <Typography variant="body2" className={styles.subtitle}>
         Instructions here
       </Typography>
 
@@ -26,16 +30,7 @@ const DragNDropList = ({ pieces }) => {
           <Box
             ref={provided.innerRef}
             {...provided.droppableProps}
-            sx={{
-              display: "flex",
-              flexWrap: "nowrap",
-              overflowX: "auto",
-              gap: 2,
-              pb: 1,
-              border: "1px solid #ccc",
-              p: 2,
-              borderRadius: 2
-            }}
+            className={styles.droppableArea}
           >
             {pieces.map((piece, index) => (
               <Draggable
@@ -54,6 +49,7 @@ const DragNDropList = ({ pieces }) => {
                 )}
               </Draggable>
             ))}
+
             {provided.placeholder}
           </Box>
         )}

@@ -34,6 +34,7 @@ function ControlButton({
           minWidth: 190,
           gap: 1,
           p: 3,
+          ...sx, 
         }}
       >
         {loading ? (
@@ -55,4 +56,4 @@ function ControlButton({
   sx={{ minWidth: 180 }}
 />; */}
 
-export default ControlButton;
+export default ControlButton; 

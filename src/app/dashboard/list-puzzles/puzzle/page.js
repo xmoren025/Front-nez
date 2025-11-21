@@ -20,19 +20,12 @@ import CustomTabsBoard from "@/components/customTabsBoard";
 // style
 import "@/styles/globals.css";
 import PuzzleRepresentation from "@/components/puzzleRepresentation";
-import { redirect } from "next/dist/server/api-utils";
 
 export default function Puzzle() {
   const tabs = [
     { label: "Puzzle representation", content: <PuzzleRepresentation /> },
   ];
 
-  const primary = {
-    main: "#1976d2",
-    light: "#42a5f5",
-    dark: "#1565c0",
-    contrastText: "#fff",
-  };
   const router = useRouter();
   return (
     <Box>
@@ -46,19 +39,31 @@ export default function Puzzle() {
             text="Execute"
             icon={<PlayCircle />}
             onClick={() => alert("Executed")}
-            color=""
+            sx={{
+              backgroundColor: "mediumSeaGreen",
+              "&:hover": {
+                backgroundColor: "seaGreen",
+              },
+            }}
           />
-          <ControlButton
-            text="Deploy"
-            icon={<RocketLaunch />}
-            onClick={() => alert("Employed")}
-            color="info"
-          />
+
           <ControlButton
             text="Stop puzzle"
             icon={<StopCircle />}
             onClick={() => alert("stopped")}
-            color="error"
+            sx={{
+              backgroundColor: "#eb4e43ff",
+              "&:hover": {
+                backgroundColor: "#d43636ff",
+              },
+            }}
+          />
+
+          <ControlButton
+            text="Deploy"
+            icon={<RocketLaunch />}
+            onClick={() => alert("Employed")}
+            color="primary"
           />
 
           <ControlButton
@@ -67,7 +72,12 @@ export default function Puzzle() {
             onClick={() =>
               router.push("/dashboard/list-puzzles/puzzle/results")
             }
-            color="success"
+            sx={{
+              backgroundColor: "lightSeaGreen",
+              "&:hover": {
+                backgroundColor: "darkCyan",
+              },
+            }}
           />
         </Stack>
         <CustomTabsBoard items={tabs} />

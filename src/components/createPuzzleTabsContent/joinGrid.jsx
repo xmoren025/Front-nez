@@ -18,13 +18,16 @@ import DragNDropList from "../dragDrop/dragNDropList";
 import styles from "./TabsContentGrids.module.css";
 import ClearButton from "../buttons/clearButton";
 import SaveButton from "../buttons/saveButton";
+import SaveServiceModal from "../modals/saveServiceModal";
 
 function JoinGrid() {
   const availablePieces = [
-    { id: 1, name: "Pieza A" },
-    { id: 2, name: "Pieza B" },
-    { id: 3, name: "Pieza C" },
-  ];
+  { id: 1, name: "RGB", color: "#e74c3c" },  
+  { id: 2, name: "2", color: "#f39c12" },  
+  { id: 3, name: "3", color: "#27ae60" },   
+  { id: 4, name: "4", color: "#16a085" },  
+  { id: 5, name: "5", color: "#2980b9" },   
+];
 
   // piezas dentro del workspace
   const [workspacePieces, setWorkspacePieces] = useState([]);
@@ -68,6 +71,10 @@ function JoinGrid() {
     }
   };
 
+  const clearWorkspace = () => {
+    setWorkspacePieces([]);
+  };
+
   return (
     <Box>
       <Box className={styles.joinContent}>
@@ -82,8 +89,8 @@ function JoinGrid() {
         </DragDropContext>
         <Box className={styles.joinBttnsContainer}>
           {" "}
-          <SaveButton />
-          <ClearButton />
+          <SaveServiceModal />
+          <ClearButton onClear={clearWorkspace}/>
         </Box>
       </Box>
     </Box>

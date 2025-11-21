@@ -1,0 +1,54 @@
+/* ========================= */
+/*    DRAG N DROP ELEMENT    */
+/* ========================= */
+
+.puzzlePiece {
+  width: 140px;
+  height: 80px;
+
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  clip-path: path(
+    "M10 0 H110 Q130 0 130 20 V60 Q130 80 110 80 H10 Q-10 80 -10 60 V20 Q-10 0 10 0 Z"
+  );
+
+  border-radius: 4px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ========================= */
+/*     DRAG N DROP LIST      */
+/* ========================= */
+
+.listContainer {
+  text-align: left;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.subtitle {
+  color: gray;
+  margin-bottom: 8px;
+}
+
+.droppableArea {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 16px;
+
+  padding: 16px;
+  padding-bottom: 8px;
+
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}

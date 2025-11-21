@@ -8,11 +8,15 @@ import { Box, IconButton, Tooltip } from "@mui/material";
 //icon
 import Autorenew from "@mui/icons-material/Autorenew";
 
-function ClearButton() {
+function ClearButton({ onClear }) {
   return (
     <Box>
       <Tooltip title="Clear">
-        <IconButton variant="contained">
+        <IconButton 
+          variant="contained"
+          onClick={onClear} 
+          color="error"     
+        >
           <Autorenew />
         </IconButton>
       </Tooltip>

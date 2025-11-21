@@ -3,30 +3,20 @@
 import React from "react";
 
 // material
-import { Paper, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
-// icon
-import { Extension } from "@mui/icons-material";
+// style
+import styles from "./DragNDrop.module.css";
 
-//style
-
-
-const DragNDropElement = ({ piece }) => (
-  <Paper
-    sx={{
-      p: 2,
-      bgcolor: "#f5f5f5",
-      cursor: "grab",
-      "&:hover": { bgcolor: "#e0e0e0" },
-    }}
-    //className={styles.joinPiece}
-    elevation={2}
-  >
-    <Typography>
-      <Extension sx={{ mr: 1, verticalAlign: "middle" }} />
+const DragNDropElement = ({ piece }) => {
+  return (
+    <Box
+      className={styles.puzzlePiece}
+      sx={{ bgcolor: piece.color }} 
+    >
       {piece.name}
-    </Typography>
-  </Paper>
-);
+    </Box>
+  );
+};
 
 export default DragNDropElement;
