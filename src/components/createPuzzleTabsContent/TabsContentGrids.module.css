@@ -43,7 +43,14 @@
   padding: 1.5vh;
 }
 
-.joinBttnsContainer{
+
+.upBttnsContainer{
+  display: flex;
+  justify-content: flex-start;
+  padding: 1.5vh;
+}
+
+.bttnsContainer{
   display: flex;
   justify-content: flex-end;
   padding: 1.5vh;
