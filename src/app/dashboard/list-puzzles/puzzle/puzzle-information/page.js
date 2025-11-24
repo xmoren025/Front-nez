@@ -16,7 +16,7 @@ import ActionButton from "@/components/buttons/actionButton";
 
 // style
 import "@/styles/globals.css";
-
+ 
 const tabs = [
   { label: "Pieces", content: "Contenido del Tab pieces" },
   { label: "Requirements", content: "Contenido del Tab requirements" },

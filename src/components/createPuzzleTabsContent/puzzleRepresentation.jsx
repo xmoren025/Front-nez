@@ -18,7 +18,7 @@ import Link from "next/link";
 
 function PuzzleRepresentation() {
   return (
-    <Box className={styles.joinContent}>
+    <Box className={styles.representationContent}>
       <Box className={styles.upBttnsContainer}>
         {" "}
         <EditButton />
@@ -27,7 +27,7 @@ function PuzzleRepresentation() {
       <Image
         src="/logos/nez2-logo-512.png"
         alt="Nez Logo"
-        width={165}
+        width={300}
         height={50}
         priority
       />
