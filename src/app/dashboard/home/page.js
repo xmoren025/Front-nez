@@ -19,6 +19,12 @@ import NavBar from "@/components/navBar";
 import "@/styles/globals.css";
 
 export default function HomePage() {
+
+  fetch("http://localhost:20500/health")
+  .then(r => r.json())
+  .then(console.log)
+  .catch(console.error);
+
   return (
     <Box>
       <NavBar />
