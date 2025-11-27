@@ -19,7 +19,7 @@ import CustomTabsBoard from "@/components/customTabsBoard";
 
 // style
 import "@/styles/globals.css";
-import PuzzleRepresentation from "@/components/createPuzzleTabsContent/puzzleRepresentation";
+import PuzzleRepresentation from "@/components/puzzleRepresentation";
 
 export default function Puzzle() {
   const tabs = [
