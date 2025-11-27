@@ -1,5 +1,7 @@
 "use client";
 
+import ProtectedRoute from "@/components/ProtectedRoute";
+
 // material
 import { Box, Stack, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
@@ -19,9 +21,9 @@ import CustomTabsBoard from "@/components/customTabsBoard";
 
 // style
 import "@/styles/globals.css";
-import PuzzleRepresentation from "@/components/createPuzzleTabsContent/puzzleRepresentation";
+import PuzzleRepresentation from "@/components/puzzleRepresentation";
 
-export default function Puzzle() {
+function Puzzle() {
   const tabs = [
     { label: "Puzzle representation", content: <PuzzleRepresentation /> },
   ];
@@ -85,3 +87,5 @@ export default function Puzzle() {
     </Box>
   );
 }
+
+export default ProtectedRoute(Puzzle);

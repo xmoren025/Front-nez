@@ -1,7 +1,10 @@
 "use client";
 
+import ProtectedRoute from "@/components/ProtectedRoute";
+
 // material
 import { Box, Typography } from "@mui/material";
+
 // icon
 
 // component
@@ -18,7 +21,7 @@ import "@/styles/globals.css";
 // moar 
 import Link from "next/link";
 
-export default function ListPuzzles() {
+function ListPuzzles() {
   return (
     <Box>
       <NavBar />
@@ -57,3 +60,5 @@ export default function ListPuzzles() {
     </Box>
   );
 }
+
+export default ProtectedRoute(ListPuzzles);

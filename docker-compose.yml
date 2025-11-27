@@ -1,0 +1,13 @@
+
+
+version: '3.8'
+services:
+  front-nez:
+    build: .
+    ports:
+      - "30500:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:20506
+    volumes:
+      - .:/app
+    restart: unless-stopped

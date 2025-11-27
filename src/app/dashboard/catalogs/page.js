@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 // material
 import { 
@@ -28,7 +29,7 @@ import CatalogAPIService from "@/services/catalogAPI";
 // style
 import "@/styles/globals.css";
 
-export default function Catalogs() {
+function Catalogs() {
   const [catalogs, setCatalogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -213,3 +214,5 @@ export default function Catalogs() {
     </Box>
   );
 }
+
+export default ProtectedRoute(Catalogs);

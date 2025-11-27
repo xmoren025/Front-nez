@@ -1,5 +1,7 @@
 "use client";
 
+import ProtectedRoute from "@/components/ProtectedRoute";
+
 // material
 import { Box, Typography } from "@mui/material";
 
@@ -10,7 +12,7 @@ import StepperElement from "@/components/stepperElement";
 // style
 import "@/styles/globals.css";
 
-export default function ChoosePieces() {
+function ChoosePieces() {
   return (
     <Box>
       <NavBar />
@@ -25,3 +27,5 @@ export default function ChoosePieces() {
     </Box>
   );
 }
+
+export default ProtectedRoute(ChoosePieces);

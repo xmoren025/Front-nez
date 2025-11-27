@@ -1,5 +1,7 @@
 "use client";
 
+import ProtectedRoute from "@/components/ProtectedRoute";
+
 // material
 import { Box, Typography} from "@mui/material";
 
@@ -16,7 +18,7 @@ import ActionButton from "@/components/buttons/actionButton";
 import "@/styles/globals.css";
 
 
-export default function Results() {
+function Results() {
   return (
     <Box>
       <NavBar />
@@ -54,3 +56,5 @@ export default function Results() {
     </Box>
   );
 }
+
+export default ProtectedRoute(Results);

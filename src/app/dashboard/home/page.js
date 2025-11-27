@@ -1,5 +1,7 @@
 "use client";
 
+import ProtectedRoute from "@/components/ProtectedRoute";
+
 // material
 import { Box, Typography, Button, Stack } from "@mui/material";
 
@@ -18,7 +20,7 @@ import NavBar from "@/components/navBar";
 // style
 import "@/styles/globals.css";
 
-export default function HomePage() {
+function HomePage() {
   return (
     <Box>
       <NavBar />
@@ -52,3 +54,5 @@ export default function HomePage() {
     </Box>
   );
 }
+
+export default ProtectedRoute(HomePage); 

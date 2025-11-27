@@ -1,10 +1,9 @@
-/* components/Stepper.module.css */
+
 .stepperContainer {
   width: 100%;
   padding: 1rem;
 }
 
-/* Stepper horizontal simple */
 .stepper {
   display: flex;
   justify-content: space-between;
@@ -71,7 +70,7 @@
   font-weight: 600 !important;
 }
 
-/* Contenido - Ajustado para el board */
+/* Contenido */
 .contentContainer {
   background-color: transparent;
   align-content: center;

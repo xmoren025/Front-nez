@@ -1,5 +1,7 @@
 "use client";
 
+import ProtectedRoute from "@/components/ProtectedRoute";
+
 // material
 import { Box, Typography } from "@mui/material";
 
@@ -16,7 +18,7 @@ import ActionButton from "@/components/buttons/actionButton";
 
 // style
 import "@/styles/globals.css";
-
+ 
 const tabs = [
   { label: "Pieces", content: "Contenido del Tab pieces" },
   { label: "Requirements", content: "Contenido del Tab requirements" },
@@ -34,7 +36,7 @@ const myImages = [
   { img: "/logos/nez2-logo-192.png", title: "image 4" },
 ];
 
-export default function PuzzleInformation() {
+function PuzzleInformation() {
   return (
     <Box>
       <NavBar />
@@ -91,3 +93,5 @@ export default function PuzzleInformation() {
     </Box>
   );
 }
+
+export default ProtectedRoute(PuzzleInformation);
