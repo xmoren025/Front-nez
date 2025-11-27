@@ -40,8 +40,6 @@
   padding: 1.5vh;
 }
 
-
-
 .upBttnsContainer{
   display: flex;
   justify-content: flex-start;
@@ -49,6 +47,7 @@
 }
 
 .joinBttnsContainer{
+
   display: flex;
   justify-content: flex-end;
   padding: 1.3vh;
